@@ -39,6 +39,8 @@ namespace BodyLangPractice
         {
             Uri uri = new Uri("/BodyLangModelPage/question2.xaml", UriKind.Relative);
             frameModel.Source = uri;
+
+            //page遷移はこれでやる（http://gushwell.ldblog.jp/archives/52335648.html）
         }
     }
 }

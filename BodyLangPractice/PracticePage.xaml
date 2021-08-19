@@ -21,8 +21,8 @@
         <Border BorderThickness="1" BorderBrush="Black" Margin="476,88,454,71" />
         <Border BorderThickness="1" BorderBrush="Black" Margin="894,88,36,71" />
         <TextBlock x:Name="textBlock" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="お手本" VerticalAlignment="Top" Margin="191,43,0,0"/>
-        <TextBlock x:Name="textBlock_Copy" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="お手本" VerticalAlignment="Top" Margin="622,43,0,0"/>
-        <TextBlock x:Name="textBlock_Copy1" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="お手本" VerticalAlignment="Top" Margin="1043,48,0,0"/>
+        <TextBlock x:Name="textBlock_Copy" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="カメラ" VerticalAlignment="Top" Margin="622,43,0,0"/>
+        <TextBlock x:Name="textBlock_Copy1" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="反応している手話" VerticalAlignment="Top" Margin="981,48,0,0"/>
         <Frame x:Name="frameModel" Content="Frame" HorizontalAlignment="Left" Height="408" VerticalAlignment="Top" Width="370" Margin="56,88,0,0"/>
     </Grid>
 </Page>
