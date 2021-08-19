@@ -16,21 +16,19 @@ using System.Windows.Shapes;
 namespace BodyLangPractice
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// PracticePage.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PracticePage : Page
     {
-        public MainWindow()
+        public PracticePage()
         {
             InitializeComponent();
-
-            Uri uri = new Uri("/TitlePage.xaml", UriKind.Relative);
-            frame.Source = uri;
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void backBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var titlePage = new TitlePage();
+            NavigationService.Navigate(titlePage);
         }
     }
 }
