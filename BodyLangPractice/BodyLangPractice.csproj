@@ -55,12 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BodyLangModelPage\question2.xaml.cs">
+      <DependentUpon>question2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BodyLangModelPage\question1.xaml.cs">
+      <DependentUpon>question1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PracticePage.xaml.cs">
       <DependentUpon>PracticePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TitlePage.xaml.cs">
       <DependentUpon>TitlePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="BodyLangModelPage\question2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BodyLangModelPage\question1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,7 +123,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="暑い.gif" />
+    <Resource Include="Picture\ohayo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\omedeto.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

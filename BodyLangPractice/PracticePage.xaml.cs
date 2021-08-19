@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BodyLangPractice.BodyLangModelPage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,21 @@ namespace BodyLangPractice
         public PracticePage()
         {
             InitializeComponent();
+
+            Uri uri = new Uri("/BodyLangModelPage/question1.xaml", UriKind.Relative);
+            frameModel.Source = uri;
         }
 
-        private void backBtn_Click(object sender, RoutedEventArgs e)
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             var titlePage = new TitlePage();
             NavigationService.Navigate(titlePage);
+        }
+
+        private void NextBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("/BodyLangModelPage/question2.xaml", UriKind.Relative);
+            frameModel.Source = uri;
         }
     }
 }
