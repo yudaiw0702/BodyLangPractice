@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BodyLangPractice.BodyLangModelPage"
       mc:Ignorable="d" 
       d:DesignHeight="408" d:DesignWidth="370"
-      Title="question1">
+      Title="question2">
 
     <Grid>
         <Image x:Name="___BodyLangPractice_component_ohayo_jpg" Margin="54,21,52,29" Source="/BodyLangPractice;component/Picture/omedeto.jpg" Stretch="Fill"/>
