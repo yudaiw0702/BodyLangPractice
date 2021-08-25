@@ -529,13 +529,6 @@ namespace BodyLangPractice
         /// </summary>
         private void Initialize()
         {
-            // ColorImageの初期設定
-            colorFrameDescription = kinect.ColorFrameSource.CreateFrameDescription(ColorImageFormat.Bgra);
-            colorImage = new WriteableBitmap(colorFrameDescription.Width, colorFrameDescription.Height, 96, 96, PixelFormats.Bgra32, null);
-            ImageColor.Source = colorImage;
-
-            // Bodyの初期設定
-            bodies = new Body[kinect.BodyFrameSource.BodyCount];
 
             // Gesturesの初期設定
             gestureDatabase = new VisualGestureBuilderDatabase(@"../../Gestures/handsign.gbd");
@@ -562,23 +555,6 @@ namespace BodyLangPractice
         private void multiFrameReader_MultiSourceFrameArrived(object sender, MultiSourceFrameArrivedEventArgs e)
         {
             MultiSourceFrame multiFrame = e.FrameReference.AcquireFrame();
-
-            // Colorの取得と表示
-            using (var colorFrame = multiFrame.ColorFrameReference.AcquireFrame())
-            {
-                if (colorFrame == null)
-                {
-                    return;
-                }
-
-                // RGB画像の表示
-                colorBuffer = new byte[colorFrameDescription.Width * colorFrameDescription.Height * colorFrameDescription.BytesPerPixel];
-                colorFrame.CopyConvertedFrameDataToArray(colorBuffer, ColorImageFormat.Bgra);
-
-                ImageColor.Source = BitmapSource.Create(colorFrameDescription.Width, colorFrameDescription.Height, 96, 96,
-                    PixelFormats.Bgra32, null, colorBuffer, colorFrameDescription.Width * (int)colorFrameDescription.BytesPerPixel);
-
-            }
 
             // Bodyを１つ探し、ジェスチャー取得の対象として設定
             if (!gestureFrameSource.IsTrackingIdValid)

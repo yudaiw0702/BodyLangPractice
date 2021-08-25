@@ -17,11 +17,8 @@
         <Border BorderThickness="1" BorderBrush="Black" Margin="56,88,874,71" />
         <Frame x:Name="frameModel" Loaded="FrameModel_Loaded" Navigated="FrameModel_Navigated" Content="Frame" HorizontalAlignment="Left" Height="408" VerticalAlignment="Top" Width="370" Margin="56,88,0,0"/>
         <Border BorderThickness="1" BorderBrush="Black" Margin="476,88,454,71" >
-            <Image x:Name="ImageColor" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="9" />
-        </Border>
-        <Viewbox HorizontalAlignment="Center" Margin="744,88,232,71" Width="324">
             <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
-        </Viewbox>
+        </Border>
         <Border BorderThickness="1" BorderBrush="Black" Margin="894,88,36,71" />
         <StackPanel Orientation="Horizontal" Background="#FF043957" Grid.Row="1">
             <Button x:Name="titleBtn" Content="タイトルへ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="10,14,0,0" Height="29" Click="TitleBtn_Click" Grid.Row="1"/>
@@ -29,8 +26,8 @@
             <Button x:Name="backBtn" Content="戻る" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="550,14,0,0" Height="29" Click="BackBtn_Click"/>
             <Button x:Name="nextBtn" Content="次へ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="10,14,0,0" Height="29" Click="NextBtn_Click"/>
         </StackPanel>
-        <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White">
-            <StatusBarItem Content="{Binding StatusText}" />
+        <StatusBar HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White">
+            <StatusBarItem Content="{Binding StatusText}" Height="33" Width="440" />
         </StatusBar>
         <TextBlock x:Name="textBlock" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="お手本" VerticalAlignment="Top" Margin="191,43,0,0"/>
         <TextBlock x:Name="textBlock_Copy" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="カメラ" VerticalAlignment="Top" Margin="622,43,0,0"/>
