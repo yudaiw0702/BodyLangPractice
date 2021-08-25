@@ -57,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BodyLangModelPage\question4.xaml.cs">
+      <DependentUpon>question4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BodyLangModelPage\question3.xaml.cs">
       <DependentUpon>question3.xaml</DependentUpon>
     </Compile>
@@ -72,6 +75,10 @@
     <Compile Include="TitlePage.xaml.cs">
       <DependentUpon>TitlePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="BodyLangModelPage\question4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="BodyLangModelPage\question3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,6 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Picture\omedeto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\yasumu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\sumu.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

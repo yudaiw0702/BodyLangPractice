@@ -140,11 +140,6 @@ namespace BodyLangPractice
         private KinectSensor kinect;
         private MultiSourceFrameReader multiFrameReader;
 
-        // Color
-        private byte[] colorBuffer;
-        private WriteableBitmap colorImage;
-        private FrameDescription colorFrameDescription;
-
         // Gesture Builder
         private VisualGestureBuilderDatabase gestureDatabase;
         private VisualGestureBuilderFrameSource gestureFrameSource;
@@ -602,6 +597,7 @@ namespace BodyLangPractice
             new Uri("/BodyLangModelPage/question1.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question2.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question3.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question4.xaml",UriKind.Relative),
         };
 
         //お手本フレーム最初のページ設定
@@ -615,7 +611,7 @@ namespace BodyLangPractice
         {
             int index = uriList.IndexOf(_navi.CurrentSource);
 
-            if (index <= 0)
+            /* if (index <= 0)
                 backBtn.IsEnabled = false;
             else
                 backBtn.IsEnabled = true;
@@ -623,7 +619,7 @@ namespace BodyLangPractice
             if (index + 1 == uriList.Count)
                 nextBtn.IsEnabled = false;
             else
-                nextBtn.IsEnabled = true;
+                nextBtn.IsEnabled = true; */
         }
 
         private void TitleBtn_Click(object sender, RoutedEventArgs e)
@@ -638,8 +634,8 @@ namespace BodyLangPractice
                 _navi.GoBack();
             else
             {
-                int index = uriList.FindIndex(p => p == _navi.CurrentSource) - 1;
-                _navi.Navigate(uriList[index]);
+                index_next--;
+                _navi.Navigate(uriList[index_next]);
             }
         }
 

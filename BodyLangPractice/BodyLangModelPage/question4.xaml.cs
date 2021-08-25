@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BodyLangPractice.BodyLangModelPage
 {
     /// <summary>
-    /// question3.xaml の相互作用ロジック
+    /// question1.xaml の相互作用ロジック
     /// </summary>
-    public partial class question3 : Page
+    public partial class question4 : Page
     {
-        public question3()
+        public question4()
         {
             InitializeComponent();
         }
