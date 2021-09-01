@@ -22,6 +22,7 @@ using System.Net;
 using System.Threading;
 using Microsoft.Win32;
 using System.ComponentModel;
+using BodyLangPractice.BodyLangModelPage;
 
 namespace BodyLangPractice
 {
@@ -144,6 +145,13 @@ namespace BodyLangPractice
         private VisualGestureBuilderDatabase gestureDatabase;
         private VisualGestureBuilderFrameSource gestureFrameSource;
         private VisualGestureBuilderFrameReader gestureFrameReader;
+
+        //Gesture
+        private Gesture ohayo;
+        private Gesture omedeto;
+        private Gesture yasumu;
+
+        int index_next = 0;
 
         public PracticePage()
         {
@@ -526,12 +534,19 @@ namespace BodyLangPractice
         {
 
             // Gesturesの初期設定
-            gestureDatabase = new VisualGestureBuilderDatabase(@"../../Gestures/handsign.gbd");
+            gestureDatabase = new VisualGestureBuilderDatabase(@"../../Gestures/gesture.gbd");
             gestureFrameSource = new VisualGestureBuilderFrameSource(kinect, 0);
 
             // 使用するジェスチャーをデータベースから取り出す
             foreach (var gesture in gestureDatabase.AvailableGestures)
             {
+                if (gesture.Name == "ohayo") //おはよう
+                { ohayo = gesture; }
+                if (gesture.Name == "omedeto") //おめでとう
+                { omedeto = gesture; }
+                if (gesture.Name == "yasumu") //休む
+                { yasumu = gesture; }
+
                 this.gestureFrameSource.AddGesture(gesture);
             }
 
@@ -584,7 +599,26 @@ namespace BodyLangPractice
                 // ジェスチャーの判定結果がある場合
                 if (gestureFrame != null && gestureFrame.DiscreteGestureResults != null)
                 {
-                    
+                    //Discrete : gesture
+                    var result1 = gestureFrame.DiscreteGestureResults[ohayo];
+                    var result2 = gestureFrame.DiscreteGestureResults[omedeto];
+                    var result3 = gestureFrame.DiscreteGestureResults[yasumu];
+
+
+                    if (result1.Confidence >= 0.3 && index_next == 0)
+                    {
+                        Console.WriteLine("おはようの手話");
+                    }
+
+                    if (result2.Confidence >= 0.3 && index_next == 1)
+                    {
+                        Console.WriteLine("おめでとうの手話");
+                    }
+
+                    if (result3.Confidence >= 0.3 && index_next == 2)
+                    {
+                        Console.WriteLine("やすむの手話");
+                    }
                 }
             }
         }
@@ -630,26 +664,44 @@ namespace BodyLangPractice
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (_navi.CanGoBack)
-                _navi.GoBack();
-            else
-            {
-                index_next--;
-                _navi.Navigate(uriList[index_next]);
-            }
+
+            index_next--;
+            _navi.Navigate(uriList[index_next]);
+
+            Console.WriteLine(index_next);
         }
 
-        int index_next = 0;
+        
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (_navi.CanGoForward)
-                _navi.GoForward();
-            else
-            {
-                index_next++;
-                _navi.Navigate(uriList[index_next]);
-            }
+
+            index_next++;
+            _navi.Navigate(uriList[index_next]);
+            
             //page遷移はこれでやる（http://gushwell.ldblog.jp/archives/52335648.html）
+
+            switch (index_next)
+            {
+                case 0:
+                    var page1 = new question1();
+                    label.Content = page1.TextBox1Str;
+                    break;
+                case 1:
+                    var page2 = new question2();
+                    label.Content = page2.TextBox1Str;
+                    break;
+                case 2:
+                    var page3 = new question3();
+                    label.Content = page3.TextBox1Str;
+                    break;
+            }
+
+            Console.WriteLine(index_next);
+        }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

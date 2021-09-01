@@ -20,9 +20,11 @@ namespace BodyLangPractice.BodyLangModelPage
     /// </summary>
     public partial class question3 : Page
     {
+        public string TextBox1Str { get; private set; } = "";
         public question3()
         {
             InitializeComponent();
+            TextBox1Str = "休むの手話です";
         }
     }
 }
