@@ -1,4 +1,4 @@
-﻿<Page x:Class="BodyLangPractice.BodyLangModelPage.question4"
+﻿<Page x:Class="BodyLangPractice.BodyLangModelPage.question5"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BodyLangPractice.BodyLangModelPage"
       mc:Ignorable="d" 
       d:DesignHeight="408" d:DesignWidth="370"
-      Title="question4">
+      Title="question5">
 
     <Grid>
         <Image x:Name="___BodyLangPractice_component_wasureru_jpg" Margin="50,30,56,20" Source="/BodyLangPractice;component/Picture/wasureru.jpg" Stretch="Fill"/>

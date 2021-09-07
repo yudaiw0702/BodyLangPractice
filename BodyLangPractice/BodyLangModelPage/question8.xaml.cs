@@ -18,11 +18,13 @@ namespace BodyLangPractice.BodyLangModelPage
     /// <summary>
     /// question1.xaml の相互作用ロジック
     /// </summary>
-    public partial class question4 : Page
+    public partial class question8 : Page
     {
-        public question4()
+        public string TextBox1Str { get; private set; } = "";
+        public question8()
         {
             InitializeComponent();
+            TextBox1Str = "作るの手話です";
         }
     }
 }

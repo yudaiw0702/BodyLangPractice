@@ -632,6 +632,10 @@ namespace BodyLangPractice
             new Uri("/BodyLangModelPage/question2.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question3.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question4.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question5.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question6.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question7.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question8.xaml",UriKind.Relative),
         };
 
         //お手本フレーム最初のページ設定
@@ -693,6 +697,26 @@ namespace BodyLangPractice
                 case 2:
                     var page3 = new question3();
                     label.Content = page3.TextBox1Str;
+                    break;
+                case 3:
+                    var page4 = new question4();
+                    label.Content = page4.TextBox1Str;
+                    break;
+                case 4:
+                    var page5 = new question5();
+                    label.Content = page5.TextBox1Str;
+                    break;
+                case 5:
+                    var page6 = new question6();
+                    label.Content = page6.TextBox1Str;
+                    break;
+                case 6:
+                    var page7 = new question7();
+                    label.Content = page7.TextBox1Str;
+                    break;
+                case 7:
+                    var page8 = new question8();
+                    label.Content = page8.TextBox1Str;
                     break;
             }
 

@@ -178,6 +178,18 @@
   <ItemGroup>
     <Resource Include="Picture\sumu.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\tukuru.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\wasureru.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\yamai.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\manabu.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(KINECTSDK20_DIR)Redist\VGB\x86\vgbtechs" "$(TargetDir)\vgbtechs" /S /R /Y /I</PostBuildEvent>
