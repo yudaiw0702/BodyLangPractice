@@ -57,6 +57,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BodyLangModelPage\question6.xaml.cs">
+      <DependentUpon>question6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BodyLangModelPage\question7.xaml.cs">
+      <DependentUpon>question7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BodyLangModelPage\question8.xaml.cs">
+      <DependentUpon>question8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BodyLangModelPage\question5.xaml.cs">
+      <DependentUpon>question5.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BodyLangModelPage\question4.xaml.cs">
       <DependentUpon>question4.xaml</DependentUpon>
     </Compile>
@@ -75,6 +87,22 @@
     <Compile Include="TitlePage.xaml.cs">
       <DependentUpon>TitlePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="BodyLangModelPage\question6.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BodyLangModelPage\question7.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BodyLangModelPage\question8.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BodyLangModelPage\question5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="BodyLangModelPage\question4.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
