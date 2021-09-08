@@ -150,6 +150,13 @@ namespace BodyLangPractice
         private Gesture ohayo;
         private Gesture omedeto;
         private Gesture yasumu;
+        private Gesture wasureru;
+        private Gesture sumu;
+        private Gesture yamai;
+        private Gesture benkyo;
+        private Gesture tukuru;
+        private Gesture konnitiha;
+        private Gesture tanosii;
 
         int index_next = 0;
 
@@ -546,6 +553,20 @@ namespace BodyLangPractice
                 { omedeto = gesture; }
                 if (gesture.Name == "yasumu") //休む
                 { yasumu = gesture; }
+                if (gesture.Name == "wasureru") //忘れる
+                { wasureru = gesture; }
+                if (gesture.Name == "sumu") //住む
+                { sumu = gesture; }
+                if (gesture.Name == "yamai") //病気
+                { yamai = gesture; }
+                if (gesture.Name == "benkyo") //勉強
+                { benkyo = gesture; }
+                if (gesture.Name == "tukuru") //作る
+                { tukuru = gesture; }
+                if (gesture.Name == "konnitiha") //こんにちは
+                { konnitiha = gesture; }
+                if (gesture.Name == "tanosii") //楽しい
+                { tanosii = gesture; }
 
                 this.gestureFrameSource.AddGesture(gesture);
             }
@@ -590,6 +611,10 @@ namespace BodyLangPractice
             }
         }
 
+        //gestureの判定時間管理
+        int ohayo_time = 0, omedeto_time = 0, yasumu_time = 0, wasureru_time = 0, sumu_time = 0,
+            yamai_time = 0, benkyo_time = 0, tukuru_time = 0, konnitiha_time = 0, tanosii_time = 0;
+
         private void gestureFrameReader_FrameArrived(object sender, VisualGestureBuilderFrameArrivedEventArgs e)
         {
 
@@ -603,23 +628,127 @@ namespace BodyLangPractice
                     var result1 = gestureFrame.DiscreteGestureResults[ohayo];
                     var result2 = gestureFrame.DiscreteGestureResults[omedeto];
                     var result3 = gestureFrame.DiscreteGestureResults[yasumu];
+                    //わからないの手話：1付近でパーで上げる、0付近で下げてるグー
+                    var result4 = gestureFrame.ContinuousGestureResults[wasureru];
+                    var result5 = gestureFrame.DiscreteGestureResults[sumu];
+                    var result6 = gestureFrame.DiscreteGestureResults[yamai];
+                    var result7 = gestureFrame.DiscreteGestureResults[benkyo];
+                    var result8 = gestureFrame.DiscreteGestureResults[tukuru];
+                    var result9 = gestureFrame.DiscreteGestureResults[konnitiha];
+                    //楽しいの手話：右手上で1付近、左手上で0付近
+                    var result10 = gestureFrame.ContinuousGestureResults[yasumu];
 
 
-                    if (result1.Confidence >= 0.3 && index_next == 0)
+                    if (result1.Confidence >= 0.3 && index_next == 0) sw_ohayo(true);
+                    else ohayo_time = 0;
+
+                    if (result2.Confidence >= 0.3 && index_next == 1) sw_omedeto(true);
+                    else omedeto_time = 0;
+
+                    if (result3.Confidence >= 0.3 && index_next == 2) sw_yasumu(true);
+                    else yasumu_time = 0;
+                    
+                    if (result4.Progress >= 0.9 && index_next == 3) //パーで上げてる状態
                     {
-                        Console.WriteLine("おはようの手話");
-                    }
-
-                    if (result2.Confidence >= 0.3 && index_next == 1)
+                        sw_yasumu(true);
+                    } else if (result4.Progress <= 0.1 && index_next == 3)
                     {
-                        Console.WriteLine("おめでとうの手話");
-                    }
 
-                    if (result3.Confidence >= 0.3 && index_next == 2)
-                    {
-                        Console.WriteLine("やすむの手話");
                     }
+                    
+
+                    if (result5.Confidence >= 0.3 && index_next == 4) sw_sumu(true);
+                    else sumu_time = 0;
+
+                    if (result6.Confidence >= 0.3 && index_next == 5) sw_yamai(true);
+                    else yamai_time = 0;
+
+                    if (result7.Confidence >= 0.3 && index_next == 6) sw_benkyo(true);
+                    else benkyo_time = 0;
+
+                    if (result8.Confidence >= 0.3 && index_next == 7) sw_tukuru(true);
+                    else tukuru_time = 0;
+
+                    if (result9.Confidence >= 0.3 && index_next == 8) sw_konnitiha(true);
+                    else konnitiha_time = 0;
+
+                    if (result10.Progress >= 0.3 && index_next == 9) sw_tukuru(true);
+                    else tukuru_time = 0;
                 }
+            }
+        }
+
+        private void sw_ohayo(bool a)
+        {
+            ohayo_time++;
+
+            if (ohayo_time == 20)
+            {
+                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おはようの手話");
+            }
+        }
+        private void sw_omedeto(bool a)
+        {
+            omedeto_time++;
+
+            if (omedeto_time == 20)
+            {
+                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おめでとうの手話");
+            }
+        }
+        private void sw_yasumu(bool a)
+        {
+            yasumu_time++;
+
+            if (yasumu_time == 20)
+            {
+                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "休むの手話");
+            }
+        }
+
+        private void sw_sumu(bool a)
+        {
+            sumu_time++;
+
+            if (sumu_time == 20)
+            {
+                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "住むの手話");
+            }
+        }
+        private void sw_yamai(bool a)
+        {
+            yamai_time++;
+
+            if (yamai_time == 20)
+            {
+                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "病気の手話");
+            }
+        }
+        private void sw_benkyo(bool a)
+        {
+            benkyo_time++;
+
+            if (benkyo_time == 20)
+            {
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "勉強の手話");
+            }
+        }
+        private void sw_tukuru(bool a)
+        {
+            tukuru_time++;
+
+            if (tukuru_time == 20)
+            {
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "作るの手話");
+            }
+        }
+        private void sw_konnitiha(bool a)
+        {
+            konnitiha_time++;
+
+            if (konnitiha_time == 20)
+            {
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "こんにちはの手話");
             }
         }
 
