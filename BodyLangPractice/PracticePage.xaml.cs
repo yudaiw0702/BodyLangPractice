@@ -651,11 +651,11 @@ namespace BodyLangPractice
                     if (result4.Progress >= 0.9 && index_next == 3) //パーで上げてる状態
                     {
                         sw_yasumu(true);
-                    } else if (result4.Progress <= 0.1 && index_next == 3)
+                    } 
+                    else if (result4.Progress <= 0.1 && index_next == 3)
                     {
-
+                        sw_yasumu(false);
                     }
-                    
 
                     if (result5.Confidence >= 0.3 && index_next == 4) sw_sumu(true);
                     else sumu_time = 0;
@@ -672,8 +672,14 @@ namespace BodyLangPractice
                     if (result9.Confidence >= 0.3 && index_next == 8) sw_konnitiha(true);
                     else konnitiha_time = 0;
 
-                    if (result10.Progress >= 0.3 && index_next == 9) sw_tukuru(true);
-                    else tukuru_time = 0;
+                    if (result10.Progress >= 0.9 && index_next == 9)
+                    {
+                        sw_tukuru(true); //右手が上の状態
+                    }
+                    else if (result10.Progress <= 0.1 && index_next == 9)
+                    {
+                        tukuru_time = 0;
+                    }
                 }
             }
         }
@@ -685,6 +691,7 @@ namespace BodyLangPractice
             if (ohayo_time == 20)
             {
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おはようの手話");
+                BoolVisibilityConverter
             }
         }
         private void sw_omedeto(bool a)
@@ -765,6 +772,8 @@ namespace BodyLangPractice
             new Uri("/BodyLangModelPage/question6.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question7.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question8.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question9.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question10.xaml",UriKind.Relative),
         };
 
         //お手本フレーム最初のページ設定
@@ -846,6 +855,14 @@ namespace BodyLangPractice
                 case 7:
                     var page8 = new question8();
                     label.Content = page8.TextBox1Str;
+                    break;
+                case 8:
+                    var page9 = new question9();
+                    label.Content = page9.TextBox1Str;
+                    break;
+                case 9:
+                    var page10 = new question10();
+                    label.Content = page10.TextBox1Str;
                     break;
             }
 

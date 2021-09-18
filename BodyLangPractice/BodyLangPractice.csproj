@@ -63,6 +63,12 @@
     <Compile Include="BodyLangModelPage\question7.xaml.cs">
       <DependentUpon>question7.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BodyLangModelPage\question10.xaml.cs">
+      <DependentUpon>question10.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BodyLangModelPage\question9.xaml.cs">
+      <DependentUpon>question9.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BodyLangModelPage\question8.xaml.cs">
       <DependentUpon>question8.xaml</DependentUpon>
     </Compile>
@@ -92,6 +98,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="BodyLangModelPage\question7.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BodyLangModelPage\question10.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BodyLangModelPage\question9.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -189,6 +203,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Picture\manabu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\tanosii.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\konnitiha.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\mark_batsu.png" />
+    <Resource Include="Picture\mark_maru.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
