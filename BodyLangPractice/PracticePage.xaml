@@ -22,7 +22,7 @@
         <Border BorderThickness="1" BorderBrush="Black" Margin="56,88,874,71" />
         <Frame x:Name="frameModel" Loaded="FrameModel_Loaded" Navigated="FrameModel_Navigated" Content="Frame" HorizontalAlignment="Left" Height="408" VerticalAlignment="Top" Width="370" Margin="56,88,0,0"/>
         <Border BorderThickness="1" BorderBrush="Black" Margin="476,88,454,71" >
-            <Image x:Name="image" Visibility="{Binding Converter={StaticResource BoolVisibilityConverter}}" Source="/BodyLangPractice;component/Picture/mark_maru.png" HorizontalAlignment="Left" Height="435" VerticalAlignment="Top" Width="435" Margin="-34,-1,-33,-28"/>
+            <Image x:Name="image" Visibility="{Binding IsMaruVisible,Converter={StaticResource BoolVisibilityConverter}}" Source="/BodyLangPractice;component/Picture/mark_maru.png" HorizontalAlignment="Left" Height="435" VerticalAlignment="Top" Width="435" Margin="-34,-1,-33,-28"/>
         </Border>
         <Border BorderThickness="1" BorderBrush="Black" Margin="894,88,36,71" />
         <StackPanel Orientation="Horizontal" Background="#FF043957" Grid.Row="1">

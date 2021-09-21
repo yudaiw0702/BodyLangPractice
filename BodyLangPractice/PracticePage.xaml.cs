@@ -160,6 +160,9 @@ namespace BodyLangPractice
 
         int index_next = 0;
 
+        public bool IsMaruVisible { get; set; } = false;
+
+
         public PracticePage()
         {
             // one sensor is currently supported
@@ -684,23 +687,28 @@ namespace BodyLangPractice
             }
         }
 
-        private void sw_ohayo(bool a)
+        private async void sw_ohayo(bool a)
         {
             ohayo_time++;
 
             if (ohayo_time == 20)
             {
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おはようの手話");
-                BoolVisibilityConverter
+                IsMaruVisible = true;
+                await Task.Delay(1000);
+                IsMaruVisible = false;
             }
         }
-        private void sw_omedeto(bool a)
+        private async void sw_omedeto(bool a)
         {
             omedeto_time++;
 
             if (omedeto_time == 20)
             {
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おめでとうの手話");
+                IsMaruVisible = true;
+                await Task.Delay(1000);
+                IsMaruVisible = false;
             }
         }
         private void sw_yasumu(bool a)
