@@ -639,7 +639,7 @@ namespace BodyLangPractice
                     var result8 = gestureFrame.DiscreteGestureResults[tukuru];
                     var result9 = gestureFrame.DiscreteGestureResults[konnitiha];
                     //楽しいの手話：右手上で1付近、左手上で0付近
-                    var result10 = gestureFrame.ContinuousGestureResults[yasumu];
+                    var result10 = gestureFrame.ContinuousGestureResults[tanosii];
 
 
                     if (result1.Confidence >= 0.3 && index_next == 0) sw_ohayo(true);
@@ -697,6 +697,10 @@ namespace BodyLangPractice
                 IsMaruVisible = true;
                 await Task.Delay(1000);
                 IsMaruVisible = false;
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
             }
         }
         private async void sw_omedeto(bool a)
@@ -709,6 +713,10 @@ namespace BodyLangPractice
                 IsMaruVisible = true;
                 await Task.Delay(1000);
                 IsMaruVisible = false;
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
             }
         }
         private void sw_yasumu(bool a)
