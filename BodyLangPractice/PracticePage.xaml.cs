@@ -160,9 +160,6 @@ namespace BodyLangPractice
 
         int index_next = 0;
 
-        public bool IsMaruVisible { get; set; } = false;
-
-
         public PracticePage()
         {
             // one sensor is currently supported
@@ -253,6 +250,8 @@ namespace BodyLangPractice
             Loaded += PracticePage_Loaded;
 
             _navi = frameModel.NavigationService;
+
+            image.Visibility = Visibility.Hidden;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -641,6 +640,8 @@ namespace BodyLangPractice
                     //楽しいの手話：右手上で1付近、左手上で0付近
                     var result10 = gestureFrame.ContinuousGestureResults[tanosii];
 
+                    textBlock1.Text = "おはよう：" + result1.Confidence.ToString();
+
 
                     if (result1.Confidence >= 0.3 && index_next == 0) sw_ohayo(true);
                     else ohayo_time = 0;
@@ -693,14 +694,16 @@ namespace BodyLangPractice
 
             if (ohayo_time == 20)
             {
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おはようの手話");
-                IsMaruVisible = true;
-                await Task.Delay(1000);
-                IsMaruVisible = false;
+                image.Visibility = Visibility;
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "おはようの手話");
+
+                await Task.Delay(2000);
 
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
             }
         }
         private async void sw_omedeto(bool a)
@@ -709,69 +712,125 @@ namespace BodyLangPractice
 
             if (omedeto_time == 20)
             {
+                image.Visibility = Visibility;
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おめでとうの手話");
-                IsMaruVisible = true;
-                await Task.Delay(1000);
-                IsMaruVisible = false;
+
+                await Task.Delay(2000);
 
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
             }
         }
-        private void sw_yasumu(bool a)
+        private async void sw_yasumu(bool a)
         {
             yasumu_time++;
 
             if (yasumu_time == 20)
             {
+                image.Visibility = Visibility;
+
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "休むの手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
             }
         }
 
-        private void sw_sumu(bool a)
+        private async void sw_sumu(bool a)
         {
             sumu_time++;
 
             if (sumu_time == 20)
             {
+                image.Visibility = Visibility;
+
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "住むの手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
             }
         }
-        private void sw_yamai(bool a)
+        private async void sw_yamai(bool a)
         {
             yamai_time++;
 
             if (yamai_time == 20)
             {
+                image.Visibility = Visibility;
+
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "病気の手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
             }
         }
-        private void sw_benkyo(bool a)
+        private async void sw_benkyo(bool a)
         {
             benkyo_time++;
 
             if (benkyo_time == 20)
             {
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "勉強の手話");
+                image.Visibility = Visibility;
+
+                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "勉強の手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
             }
         }
-        private void sw_tukuru(bool a)
+        private async void sw_tukuru(bool a)
         {
             tukuru_time++;
 
             if (tukuru_time == 20)
             {
+                image.Visibility = Visibility;
+
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "作るの手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
             }
         }
-        private void sw_konnitiha(bool a)
+        private async void sw_konnitiha(bool a)
         {
             konnitiha_time++;
 
             if (konnitiha_time == 20)
             {
+                image.Visibility = Visibility;
+
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "こんにちはの手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
             }
         }
 
