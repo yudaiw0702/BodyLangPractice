@@ -630,7 +630,7 @@ namespace BodyLangPractice
                     var result1 = gestureFrame.DiscreteGestureResults[ohayo];
                     var result2 = gestureFrame.DiscreteGestureResults[omedeto];
                     var result3 = gestureFrame.DiscreteGestureResults[yasumu];
-                    //わからないの手話：1付近でパーで上げる、0付近で下げてるグー
+                    //忘れるの手話：1付近でパーで上げる、0付近で下げてるグー
                     var result4 = gestureFrame.ContinuousGestureResults[wasureru];
                     var result5 = gestureFrame.DiscreteGestureResults[sumu];
                     var result6 = gestureFrame.DiscreteGestureResults[yamai];
@@ -640,49 +640,87 @@ namespace BodyLangPractice
                     //楽しいの手話：右手上で1付近、左手上で0付近
                     var result10 = gestureFrame.ContinuousGestureResults[tanosii];
 
-                    textBlock1.Text = "おはよう：" + result1.Confidence.ToString();
 
-
-                    if (result1.Confidence >= 0.3 && index_next == 0) sw_ohayo(true);
-                    else ohayo_time = 0;
-
-                    if (result2.Confidence >= 0.3 && index_next == 1) sw_omedeto(true);
-                    else omedeto_time = 0;
-
-                    if (result3.Confidence >= 0.3 && index_next == 2) sw_yasumu(true);
-                    else yasumu_time = 0;
-                    
-                    if (result4.Progress >= 0.9 && index_next == 3) //パーで上げてる状態
+                    if (index_next == 0)
                     {
-                        sw_yasumu(true);
-                    } 
-                    else if (result4.Progress <= 0.1 && index_next == 3)
-                    {
-                        sw_yasumu(false);
+                        textBlock1.Text = "おはよう：" + result1.Confidence.ToString();
+                        if (result1.Confidence >= 0.3) sw_ohayo(true);
+                        else ohayo_time = 0;
                     }
 
-                    if (result5.Confidence >= 0.3 && index_next == 4) sw_sumu(true);
-                    else sumu_time = 0;
-
-                    if (result6.Confidence >= 0.3 && index_next == 5) sw_yamai(true);
-                    else yamai_time = 0;
-
-                    if (result7.Confidence >= 0.3 && index_next == 6) sw_benkyo(true);
-                    else benkyo_time = 0;
-
-                    if (result8.Confidence >= 0.3 && index_next == 7) sw_tukuru(true);
-                    else tukuru_time = 0;
-
-                    if (result9.Confidence >= 0.3 && index_next == 8) sw_konnitiha(true);
-                    else konnitiha_time = 0;
-
-                    if (result10.Progress >= 0.9 && index_next == 9)
+                    if (index_next == 1)
                     {
-                        sw_tukuru(true); //右手が上の状態
+                        textBlock1.Text = "おめでとう：" + result2.Confidence.ToString();
+                        if (result2.Confidence >= 0.3) sw_omedeto(true);
+                        else omedeto_time = 0;
                     }
-                    else if (result10.Progress <= 0.1 && index_next == 9)
+
+                    if (index_next == 2)
                     {
-                        tukuru_time = 0;
+                        textBlock1.Text = "休む：" + result3.Confidence.ToString();
+                        if (result3.Confidence >= 0.3) sw_yasumu(true);
+                        else yasumu_time = 0;
+                    }
+
+                    if (index_next == 3)
+                    {
+                        textBlock1.Text = "忘れる：" + result4.Progress.ToString();
+                        if (result4.Progress >= 0.9) //パーで上げてる状態
+                        {
+                            sw_wasureru(true);
+                        }
+                        else if (result4.Progress <= 0.1)
+                        {
+                            sw_wasureru(false);
+                        }
+                    }
+
+                    if (index_next == 4)
+                    {
+                        textBlock1.Text = "住む：" + result5.Confidence.ToString();
+                        if (result5.Confidence >= 0.3) sw_sumu(true);
+                        else sumu_time = 0;
+                    }
+
+                    if (index_next == 5)
+                    {
+                        textBlock1.Text = "病気：" + result6.Confidence.ToString();
+                        if (result6.Confidence >= 0.3) sw_yamai(true);
+                        else yamai_time = 0;
+                    }
+
+                    if (index_next == 6)
+                    {
+                        textBlock1.Text = "勉強：" + result7.Confidence.ToString();
+                        if (result7.Confidence >= 0.3) sw_benkyo(true);
+                        else benkyo_time = 0;
+                    }
+
+                    if (index_next == 7)
+                    {
+                        textBlock1.Text = "作る：" + result8.Confidence.ToString();
+                        if (result8.Confidence >= 0.3) sw_tukuru(true);
+                        else tukuru_time = 0;
+                    }
+
+                    if (index_next == 8)
+                    {
+                        textBlock1.Text = "こんにちは：" + result9.Confidence.ToString();
+                        if (result9.Confidence >= 0.3) sw_konnitiha(true);
+                        else konnitiha_time = 0;
+                    }
+
+                    if (index_next == 9)
+                    {
+                        textBlock1.Text = "楽しい：" + result10.Progress.ToString();
+                        if (result10.Progress >= 0.9)
+                        {
+                            sw_tanosii(true); //右手が上の状態
+                        }
+                        else if (result10.Progress <= 0.1)
+                        {
+                            tanosii_time = 0;
+                        }
                     }
                 }
             }
@@ -733,6 +771,25 @@ namespace BodyLangPractice
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "休むの手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private async void sw_wasureru(bool a)
+        {
+            wasureru_time++;
+
+            if (wasureru_time == 20)
+            {
+                image.Visibility = Visibility;
+
+                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "忘れるの手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -820,6 +877,25 @@ namespace BodyLangPractice
             konnitiha_time++;
 
             if (konnitiha_time == 20)
+            {
+                image.Visibility = Visibility;
+
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "こんにちはの手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private async void sw_tanosii(bool a)
+        {
+            tanosii_time++;
+
+            if (tanosii_time == 20)
             {
                 image.Visibility = Visibility;
 
