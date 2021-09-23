@@ -646,7 +646,8 @@ namespace BodyLangPractice
 
                     if (index_next == 0)
                     {
-                        textBlock1.Text = "おはよう：" + result1.Confidence.ToString();
+                        double resultRound = Math.Ceiling(result1.Confidence);
+                        textBlock1.Text = "おはよう：" + resultRound + "%";
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
                         if (result1.Confidence >= 0.3) sw_ohayo(true);
