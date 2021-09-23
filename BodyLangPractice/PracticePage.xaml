@@ -20,7 +20,7 @@
             <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
         </Border>
         <Image x:Name="image" Source="/BodyLangPractice;component/Picture/mark_maru.png" HorizontalAlignment="Left" Height="435" VerticalAlignment="Top" Width="435" Margin="431,61,0,0"/>
-        <Border BorderThickness="1" BorderBrush="Black" Margin="894,88,36,71" />
+        <Border BorderThickness="1" BorderBrush="Black" Margin="894,400,36,71" />
         <StackPanel Orientation="Horizontal" Background="#FF043957" Grid.Row="1">
             <Button x:Name="titleBtn" Content="タイトルへ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="10,14,0,0" Height="29" Click="TitleBtn_Click" Grid.Row="1"/>
             <Button x:Name="helpBtn" Content="操作説明" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="20,14,0,0" Height="29" Click="Help_Click"/>
@@ -32,9 +32,11 @@
         </StatusBar>
         <TextBlock x:Name="textBlock" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="お手本" VerticalAlignment="Top" Margin="191,43,0,0"/>
         <TextBlock x:Name="textBlock_Copy" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="カメラ" VerticalAlignment="Top" Margin="622,43,0,0"/>
-        <TextBlock x:Name="textBlock_Copy1" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="反応している手話" VerticalAlignment="Top" Margin="981,48,0,0"/>
+        <TextBlock x:Name="textBlock_Copy1" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="手話の確からしさ" VerticalAlignment="Top" Margin="981,337,0,0"/>
         <Label x:Name="label" Content="aaaa" HorizontalAlignment="Left" Margin="218,505,0,0" VerticalAlignment="Top" Height="29" Width="122"/>
-        <TextBlock x:Name="textBlock1" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="1050,115,0,0"/>
+        <TextBlock x:Name="textBlock1" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="981,425,0,0"/>
+        <TextBlock x:Name="textNumber" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0 / 10" VerticalAlignment="Top" Height="73" Width="184" Margin="985,133,0,0"/>
+        <TextBlock x:Name="textBlock_Copy2" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="問題数" VerticalAlignment="Top" Margin="1004,88,0,0"/>
 
 
     </Grid>

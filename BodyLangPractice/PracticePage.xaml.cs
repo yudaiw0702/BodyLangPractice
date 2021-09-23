@@ -317,6 +317,9 @@ namespace BodyLangPractice
             {
                 MessageBox.Show(ex.ToString());
             }
+
+            var indexString = index_next + 1;
+            textNumber.Text = indexString + " / " + uriList.Count;
         }
 
 
@@ -644,6 +647,8 @@ namespace BodyLangPractice
                     if (index_next == 0)
                     {
                         textBlock1.Text = "おはよう：" + result1.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result1.Confidence >= 0.3) sw_ohayo(true);
                         else ohayo_time = 0;
                     }
@@ -651,6 +656,8 @@ namespace BodyLangPractice
                     if (index_next == 1)
                     {
                         textBlock1.Text = "おめでとう：" + result2.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result2.Confidence >= 0.3) sw_omedeto(true);
                         else omedeto_time = 0;
                     }
@@ -658,6 +665,8 @@ namespace BodyLangPractice
                     if (index_next == 2)
                     {
                         textBlock1.Text = "休む：" + result3.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result3.Confidence >= 0.3) sw_yasumu(true);
                         else yasumu_time = 0;
                     }
@@ -665,6 +674,8 @@ namespace BodyLangPractice
                     if (index_next == 3)
                     {
                         textBlock1.Text = "忘れる：" + result4.Progress.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result4.Progress >= 0.9) //パーで上げてる状態
                         {
                             sw_wasureru(true);
@@ -678,6 +689,8 @@ namespace BodyLangPractice
                     if (index_next == 4)
                     {
                         textBlock1.Text = "住む：" + result5.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result5.Confidence >= 0.3) sw_sumu(true);
                         else sumu_time = 0;
                     }
@@ -685,6 +698,8 @@ namespace BodyLangPractice
                     if (index_next == 5)
                     {
                         textBlock1.Text = "病気：" + result6.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result6.Confidence >= 0.3) sw_yamai(true);
                         else yamai_time = 0;
                     }
@@ -692,6 +707,8 @@ namespace BodyLangPractice
                     if (index_next == 6)
                     {
                         textBlock1.Text = "勉強：" + result7.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result7.Confidence >= 0.3) sw_benkyo(true);
                         else benkyo_time = 0;
                     }
@@ -699,6 +716,8 @@ namespace BodyLangPractice
                     if (index_next == 7)
                     {
                         textBlock1.Text = "作る：" + result8.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result8.Confidence >= 0.3) sw_tukuru(true);
                         else tukuru_time = 0;
                     }
@@ -706,6 +725,8 @@ namespace BodyLangPractice
                     if (index_next == 8)
                     {
                         textBlock1.Text = "こんにちは：" + result9.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result9.Confidence >= 0.3) sw_konnitiha(true);
                         else konnitiha_time = 0;
                     }
@@ -713,6 +734,8 @@ namespace BodyLangPractice
                     if (index_next == 9)
                     {
                         textBlock1.Text = "楽しい：" + result10.Progress.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
                         if (result10.Progress >= 0.9)
                         {
                             sw_tanosii(true); //右手が上の状態
@@ -953,71 +976,83 @@ namespace BodyLangPractice
         {
             var titlePage = new TitlePage();
             NavigationService.Navigate(titlePage);
+
+            
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (index_next > 0)
+            {
+                index_next--;
+                _navi.Navigate(uriList[index_next]);
 
-            index_next--;
-            _navi.Navigate(uriList[index_next]);
+                var indexString = index_next + 1;
+                textNumber.Text = indexString + " / " + uriList.Count;
 
-            Console.WriteLine(index_next);
+                Console.WriteLine(index_next);
+            }
         }
 
         
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            index_next++;
-            _navi.Navigate(uriList[index_next]);
-            
-            //page遷移はこれでやる（http://gushwell.ldblog.jp/archives/52335648.html）
-
-            switch (index_next)
+            if (index_next + 1 < uriList.Count)
             {
-                case 0:
-                    var page1 = new question1();
-                    label.Content = page1.TextBox1Str;
-                    break;
-                case 1:
-                    var page2 = new question2();
-                    label.Content = page2.TextBox1Str;
-                    break;
-                case 2:
-                    var page3 = new question3();
-                    label.Content = page3.TextBox1Str;
-                    break;
-                case 3:
-                    var page4 = new question4();
-                    label.Content = page4.TextBox1Str;
-                    break;
-                case 4:
-                    var page5 = new question5();
-                    label.Content = page5.TextBox1Str;
-                    break;
-                case 5:
-                    var page6 = new question6();
-                    label.Content = page6.TextBox1Str;
-                    break;
-                case 6:
-                    var page7 = new question7();
-                    label.Content = page7.TextBox1Str;
-                    break;
-                case 7:
-                    var page8 = new question8();
-                    label.Content = page8.TextBox1Str;
-                    break;
-                case 8:
-                    var page9 = new question9();
-                    label.Content = page9.TextBox1Str;
-                    break;
-                case 9:
-                    var page10 = new question10();
-                    label.Content = page10.TextBox1Str;
-                    break;
-            }
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
 
-            Console.WriteLine(index_next);
+                var indexString = index_next + 1;
+                textNumber.Text = indexString + " / " + uriList.Count;
+
+                //page遷移はこれでやる（http://gushwell.ldblog.jp/archives/52335648.html）
+
+                switch (index_next)
+                {
+                    case 0:
+                        var page1 = new question1();
+                        label.Content = page1.TextBox1Str;
+                        break;
+                    case 1:
+                        var page2 = new question2();
+                        label.Content = page2.TextBox1Str;
+                        break;
+                    case 2:
+                        var page3 = new question3();
+                        label.Content = page3.TextBox1Str;
+                        break;
+                    case 3:
+                        var page4 = new question4();
+                        label.Content = page4.TextBox1Str;
+                        break;
+                    case 4:
+                        var page5 = new question5();
+                        label.Content = page5.TextBox1Str;
+                        break;
+                    case 5:
+                        var page6 = new question6();
+                        label.Content = page6.TextBox1Str;
+                        break;
+                    case 6:
+                        var page7 = new question7();
+                        label.Content = page7.TextBox1Str;
+                        break;
+                    case 7:
+                        var page8 = new question8();
+                        label.Content = page8.TextBox1Str;
+                        break;
+                    case 8:
+                        var page9 = new question9();
+                        label.Content = page9.TextBox1Str;
+                        break;
+                    case 9:
+                        var page10 = new question10();
+                        label.Content = page10.TextBox1Str;
+                        break;
+                }
+
+                Console.WriteLine(index_next);
+            }
         }
 
         private void Help_Click(object sender, RoutedEventArgs e)
