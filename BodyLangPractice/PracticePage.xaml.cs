@@ -646,7 +646,8 @@ namespace BodyLangPractice
 
                     if (index_next == 0)
                     {
-                        double resultRound = Math.Ceiling(result1.Confidence);
+                        //小数点切り上げ
+                        double resultRound = Math.Ceiling(result1.Confidence * 100);
                         textBlock1.Text = "おはよう：" + resultRound + "%";
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
