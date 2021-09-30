@@ -9,6 +9,7 @@
       Title="question3">
 
     <Grid>
-        <Image x:Name="___BodyLangPractice_component_yasumu_jpg" Margin="64,24,42,26" Source="/BodyLangPractice;component/Picture/yasumu.jpg" Stretch="Fill"/>
+        <Image x:Name="___BodyLangPractice_component_yasumu_jpg" Margin="0,100,167.6,120" Source="/BodyLangPractice;component/Picture/yasumu1.png" Stretch="Fill"/>
+        <Image x:Name="___BodyLangPractice_component_yasumu_jpg_Copy" Margin="216,100,9.6,120" Source="/BodyLangPractice;component/Picture/yasumu2.png" Stretch="Fill"/>
     </Grid>
 </Page>
