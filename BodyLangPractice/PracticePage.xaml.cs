@@ -158,6 +158,9 @@ namespace BodyLangPractice
         private Gesture konnitiha;
         private Gesture tanosii;
 
+        //Progress Gesture Frag
+        private Boolean wasureru_flag;
+
         int index_next = 0;
 
         public PracticePage()
@@ -646,36 +649,72 @@ namespace BodyLangPractice
 
                     if (index_next == 0)
                     {
-                        //小数点切り上げ
-                        double resultRound = Math.Ceiling(result1.Confidence * 100);
-                        textBlock1.Text = "おはよう：" + resultRound + "%";
+                        if (result1.Confidence > 0.1)
+                        {
+                            textBlock1.Text = "おはよう：判定中";
+                        }
+                        if (result1.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "おはよう：○";
+                        }
+                        textBlock2.Text = "おはよう：" + result1.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result1.Confidence >= 0.3) sw_ohayo(true);
+                        if (result1.Confidence >= 0.3) { 
+                            sw_ohayo(true); 
+                            textBlock1.Text = "おはよう：◎"; 
+                        }
                         else ohayo_time = 0;
                     }
 
                     if (index_next == 1)
                     {
-                        textBlock1.Text = "おめでとう：" + result2.Confidence.ToString();
+                        if (result1.Confidence > 0.1)
+                        {
+                            textBlock1.Text = "おめでとう：判定中";
+                        }
+
+                        if (result1.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "おめでとう：○";
+                        }
+                        
+                        textBlock2.Text = "おめでとう：" + result2.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result2.Confidence >= 0.3) sw_omedeto(true);
+                        if (result2.Confidence >= 0.3)
+                        {
+                            sw_omedeto(true);
+                            textBlock1.Text = "おめでとう：◎";
+                        }
                         else omedeto_time = 0;
                     }
 
                     if (index_next == 2)
                     {
-                        textBlock1.Text = "休む：" + result3.Confidence.ToString();
+                        if (result3.Confidence > 0.1)
+                        {
+                            textBlock1.Text = "休む：判定中";
+                        }
+
+                        if (result3.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "休む：○";
+                        }
+                        textBlock2.Text = "休む：" + result3.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result3.Confidence >= 0.3) sw_yasumu(true);
+                        if (result3.Confidence >= 0.3)
+                        {
+                            sw_yasumu(true);
+                            textBlock1.Text = "休む：◎";
+                        }
                         else yasumu_time = 0;
                     }
 
                     if (index_next == 3)
                     {
-                        textBlock1.Text = "忘れる：" + result4.Progress.ToString();
+                        textBlock2.Text = "忘れる：" + result4.Progress.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
                         if (result4.Progress >= 0.9) //パーで上げてる状態
@@ -685,6 +724,10 @@ namespace BodyLangPractice
                         else if (result4.Progress <= 0.1)
                         {
                             sw_wasureru(false);
+                        }
+                        else
+                        {
+                            textBlock1.Text = "忘れる：判定中";
                         }
                     }
 
@@ -809,19 +852,31 @@ namespace BodyLangPractice
         private async void sw_wasureru(bool a)
         {
             wasureru_time++;
-
-            if (wasureru_time == 20)
+            if (a) {
+                if (wasureru_time == 20)
+                {
+                    textBlock1.Text = "忘れる：○";
+                    Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "パーで上げるOK");
+                    wasureru_flag = true;
+                }
+            }
+            else
             {
-                image.Visibility = Visibility;
+                if(!wasureru_flag || wasureru_time == 20)
+                {
+                    textBlock1.Text = "忘れる：◎";
+                    image.Visibility = Visibility;
+                    Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "パーで上げるOK");
+                    await Task.Delay(2000);
+                    wasureru_flag = false;
 
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "忘れるの手話");
-                await Task.Delay(2000);
+                    //次の問題に遷移
+                    index_next++;
+                    _navi.Navigate(uriList[index_next]);
 
-                //次の問題に遷移
-                index_next++;
-                _navi.Navigate(uriList[index_next]);
+                    image.Visibility = Visibility.Hidden;
+                }
 
-                image.Visibility = Visibility.Hidden;
             }
         }
 
