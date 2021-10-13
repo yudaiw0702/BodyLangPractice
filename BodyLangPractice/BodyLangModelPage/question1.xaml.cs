@@ -30,8 +30,6 @@ namespace BodyLangPractice.BodyLangModelPage
     /// </summary>
     public partial class question1 : Page
     {
-
-        private Gesture ohayo;
         public string TextBox1Str { get; private set; } = "";
         public question1()
         {

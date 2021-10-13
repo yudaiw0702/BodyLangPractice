@@ -57,6 +57,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BodyLangModelPage\question15.xaml.cs">
+      <DependentUpon>question15.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BodyLangModelPage\question14.xaml.cs">
+      <DependentUpon>question14.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BodyLangModelPage\question13.xaml.cs">
+      <DependentUpon>question13.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BodyLangModelPage\question12.xaml.cs">
+      <DependentUpon>question12.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BodyLangModelPage\question6.xaml.cs">
       <DependentUpon>question6.xaml</DependentUpon>
     </Compile>
@@ -66,17 +78,20 @@
     <Compile Include="BodyLangModelPage\question10.xaml.cs">
       <DependentUpon>question10.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BodyLangModelPage\question11.xaml.cs">
+      <DependentUpon>question11.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BodyLangModelPage\question9.xaml.cs">
       <DependentUpon>question9.xaml</DependentUpon>
     </Compile>
     <Compile Include="BodyLangModelPage\question8.xaml.cs">
       <DependentUpon>question8.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BodyLangModelPage\question5.xaml.cs">
-      <DependentUpon>question5.xaml</DependentUpon>
-    </Compile>
     <Compile Include="BodyLangModelPage\question4.xaml.cs">
       <DependentUpon>question4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BodyLangModelPage\question5.xaml.cs">
+      <DependentUpon>question5.xaml</DependentUpon>
     </Compile>
     <Compile Include="BodyLangModelPage\question3.xaml.cs">
       <DependentUpon>question3.xaml</DependentUpon>
@@ -93,6 +108,22 @@
     <Compile Include="TitlePage.xaml.cs">
       <DependentUpon>TitlePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="BodyLangModelPage\question15.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BodyLangModelPage\question14.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BodyLangModelPage\question13.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BodyLangModelPage\question12.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="BodyLangModelPage\question6.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="BodyLangModelPage\question11.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="BodyLangModelPage\question9.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -113,11 +148,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="BodyLangModelPage\question5.xaml">
+    <Page Include="BodyLangModelPage\question4.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="BodyLangModelPage\question4.xaml">
+    <Page Include="BodyLangModelPage\question5.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -213,6 +248,15 @@
   <ItemGroup>
     <Resource Include="Picture\mark_batsu.png" />
     <Resource Include="Picture\mark_maru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\atumeru.jpg" />
+    <Resource Include="Picture\keitaidenwa.jpg" />
+    <Resource Include="Picture\neru.jpg" />
+    <Resource Include="Picture\otukaresama.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Picture\masuku.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
