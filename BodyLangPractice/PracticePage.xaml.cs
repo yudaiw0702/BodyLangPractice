@@ -157,6 +157,7 @@ namespace BodyLangPractice
         private Gesture tukuru;
         private Gesture konnitiha;
         private Gesture tanosii;
+        
 
         //Progress Gesture Frag
         private Boolean wasureru_flag;

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GestureBuilderFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SolutionFile>
+		<Header>
+			<Date>2021-10-13</Date>
+			<Time>14:10:51.7065755+09:00</Time>
+			<Version>1</Version>
+			<Type>Solution</Type>
+			<ID>b0d5f43a-bb22-470d-a758-3d0f616805a4</ID>
+		</Header>
+		<Solution_Data>
+			<Files>
+				<Name />
+				<Content>
+					<Items>
+						<File>atumeru.vgbproj</File>
+					</Items>
+					<Items>
+						<File>benkyo.vgbproj</File>
+					</Items>
+					<Items>
+						<File>keitaidenwa.vgbproj</File>
+					</Items>
+					<Items>
+						<File>konnitiha.vgbproj</File>
+					</Items>
+					<Items>
+						<File>masuku.vgbproj</File>
+					</Items>
+					<Items>
+						<File>neru.vgbproj</File>
+					</Items>
+					<Items>
+						<File>ohayo.vgbproj</File>
+					</Items>
+					<Items>
+						<File>omedeto.vgbproj</File>
+					</Items>
+					<Items>
+						<File>otukaresama.vgbproj</File>
+					</Items>
+					<Items>
+						<File>sumu.vgbproj</File>
+					</Items>
+					<Items>
+						<File>tanosii.vgbproj</File>
+					</Items>
+					<Items>
+						<File>tukuru.vgbproj</File>
+					</Items>
+					<Items>
+						<File>wasureru.vgbproj</File>
+					</Items>
+					<Items>
+						<File>yamai.vgbproj</File>
+					</Items>
+					<Items>
+						<File>yasumu.vgbproj</File>
+					</Items>
+				</Content>
+			</Files>
+		</Solution_Data>
+		<UI_State />
+		<Attributes />
+	</SolutionFile>
+</GestureBuilderFile>
