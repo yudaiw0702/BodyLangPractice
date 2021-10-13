@@ -1,4 +1,4 @@
-﻿<Page x:Class="BodyLangPractice.BodyLangModelPage.question9"
+﻿<Page x:Class="BodyLangPractice.BodyLangModelPage.question14"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:BodyLangPractice.BodyLangModelPage"
       mc:Ignorable="d" 
       d:DesignHeight="408" d:DesignWidth="370"
-      Title="question9">
+      Title="question14">
 
     <Grid>
-        <Image x:Name="___BodyLangPractice_component_sumu_jpg" Margin="50,30,56,20" Source="/BodyLangPractice;component/Picture/konnitiha.jpg" Stretch="Fill"/>
+        <Image x:Name="___BodyLangPractice_component_keitaidenwa_jpg" Margin="50,30,56,20" Source="/BodyLangPractice;component/Picture/keitaidenwa.jpg" Stretch="Fill"/>
     </Grid>
 </Page>
