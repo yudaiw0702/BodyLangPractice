@@ -9,6 +9,6 @@
       Title="question9">
 
     <Grid>
-        <Image x:Name="___BodyLangPractice_component_sumu_jpg" Margin="50,30,56,20" Source="/BodyLangPractice;component/Picture/konnitiha.jpg" Stretch="Fill"/>
+        <Image x:Name="___BodyLangPractice_component_konnitiha_jpg" Margin="50,30,56,20" Source="/BodyLangPractice;component/Picture/konnitiha.jpg" Stretch="Fill"/>
     </Grid>
 </Page>

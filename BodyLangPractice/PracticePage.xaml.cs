@@ -637,7 +637,8 @@ namespace BodyLangPractice
 
         //gestureの判定時間管理
         int ohayo_time = 0, omedeto_time = 0, yasumu_time = 0, wasureru_time = 0, sumu_time = 0,
-            yamai_time = 0, benkyo_time = 0, tukuru_time = 0, konnitiha_time = 0, tanosii_time = 0;
+            yamai_time = 0, benkyo_time = 0, tukuru_time = 0, konnitiha_time = 0, tanosii_time = 0,
+            atumeru_time = 0, otukaresama_time = 0, neru_time = 0, keitaidenwa_time = 0, masuku_time = 0;
 
         private void gestureFrameReader_FrameArrived(object sender, VisualGestureBuilderFrameArrivedEventArgs e)
         {
@@ -661,11 +662,11 @@ namespace BodyLangPractice
                     var result9 = gestureFrame.DiscreteGestureResults[konnitiha];
                     //楽しいの手話：右手上で1付近、左手上で0付近
                     var result10 = gestureFrame.ContinuousGestureResults[tanosii];
-                    /*var result11 = gestureFrame.DiscreteGestureResults[atumeru];
+                    var result11 = gestureFrame.DiscreteGestureResults[atumeru];
                     var result12 = gestureFrame.DiscreteGestureResults[otukaresama];
                     var result13 = gestureFrame.DiscreteGestureResults[neru];
                     var result14 = gestureFrame.DiscreteGestureResults[keitaidenwa];
-                    var result15 = gestureFrame.DiscreteGestureResults[masuku];*/
+                    var result15 = gestureFrame.DiscreteGestureResults[masuku];
 
 
                     if (index_next == 0)
@@ -879,6 +880,116 @@ namespace BodyLangPractice
                         {
                             textBlock1.Text = "楽しい：判定中";
                         }
+                    }
+
+                    if (index_next == 10)
+                    {
+                        if (result11.Confidence > 0.1)
+                        {
+                            textBlock1.Text = "集める：判定中";
+                        }
+
+                        if (result11.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "集める：○";
+                        }
+                        textBlock1.Text = "集める：" + result11.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
+                        if (result11.Confidence >= 0.3)
+                        {
+                            sw_atumeru(true);
+                            textBlock1.Text = "集める：◎";
+                        }
+                        else atumeru_time = 0;
+                    }
+
+                    if (index_next == 11)
+                    {
+                        if (result12.Confidence > 0.1)
+                        {
+                            textBlock1.Text = "お疲れ様：判定中";
+                        }
+
+                        if (result12.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "お疲れ様：○";
+                        }
+                        textBlock1.Text = "お疲れ様：" + result12.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
+                        if (result12.Confidence >= 0.3)
+                        {
+                            sw_otukaresama(true);
+                            textBlock1.Text = "お疲れ様：◎";
+                        }
+                        else otukaresama_time = 0;
+                    }
+
+                    if (index_next == 12)
+                    {
+                        if (result13.Confidence > 0.1)
+                        {
+                            textBlock1.Text = "寝る：判定中";
+                        }
+
+                        if (result13.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "寝る：○";
+                        }
+                        textBlock1.Text = "寝る：" + result13.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
+                        if (result13.Confidence >= 0.3)
+                        {
+                            sw_neru(true);
+                            textBlock1.Text = "寝る：◎";
+                        }
+                        else neru_time = 0;
+                    }
+
+                    if (index_next == 13)
+                    {
+                        if (result14.Confidence > 0.1)
+                        {
+                            textBlock1.Text = "携帯電話：判定中";
+                        }
+
+                        if (result14.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "携帯電話：○";
+                        }
+                        textBlock1.Text = "携帯電話：" + result14.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
+                        if (result14.Confidence >= 0.3)
+                        {
+                            sw_keitaidenwa(true);
+                            textBlock1.Text = "携帯電話：◎";
+                        }
+                        else keitaidenwa_time = 0;
+                    }
+
+                    if (index_next == 14)
+                    {
+                        if (result15.Confidence > 0.1)
+                        {
+                            textBlock1.Text = "マスク：判定中";
+                        }
+
+                        if (result15.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "マスク：○";
+                        }
+                        textBlock1.Text = "マスク：" + result15.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
+                        if (result15.Confidence >= 0.3)
+                        {
+                            sw_masuku(true);
+                            textBlock1.Text = "マスク：◎";
+                        }
+                        else masuku_time = 0;
                     }
                 }
             }
@@ -1094,6 +1205,101 @@ namespace BodyLangPractice
             }
         }
 
+        private async void sw_atumeru(bool a)
+        {
+            atumeru_time++;
+
+            if (atumeru_time == 20)
+            {
+                image.Visibility = Visibility;
+
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "集めるの手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private async void sw_otukaresama(bool a)
+        {
+            otukaresama_time++;
+
+            if (otukaresama_time == 20)
+            {
+                image.Visibility = Visibility;
+
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "お疲れ様の手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private async void sw_neru(bool a)
+        {
+            neru_time++;
+
+            if (neru_time == 20)
+            {
+                image.Visibility = Visibility;
+
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "寝るの手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private async void sw_keitaidenwa(bool a)
+        {
+            keitaidenwa_time++;
+
+            if (keitaidenwa_time == 20)
+            {
+                image.Visibility = Visibility;
+
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "携帯電話の手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private async void sw_masuku(bool a)
+        {
+            masuku_time++;
+
+            if (masuku_time == 20)
+            {
+                image.Visibility = Visibility;
+
+                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "マスクの手話");
+                await Task.Delay(2000);
+
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
+                image.Visibility = Visibility.Hidden;
+            }
+        }
+
         private NavigationService _navi;
 
 
@@ -1109,6 +1315,11 @@ namespace BodyLangPractice
             new Uri("/BodyLangModelPage/question8.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question9.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question10.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question11.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question12.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question13.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question14.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question15.xaml",UriKind.Relative),
         };
 
         //お手本フレーム最初のページ設定
@@ -1209,6 +1420,26 @@ namespace BodyLangPractice
                     case 9:
                         var page10 = new question10();
                         label.Content = page10.TextBox1Str;
+                        break;
+                    case 10:
+                        var page11 = new question11();
+                        label.Content = page11.TextBox1Str;
+                        break;
+                    case 11:
+                        var page12 = new question12();
+                        label.Content = page12.TextBox1Str;
+                        break;
+                    case 12:
+                        var page13 = new question13();
+                        label.Content = page13.TextBox1Str;
+                        break;
+                    case 13:
+                        var page14 = new question14();
+                        label.Content = page14.TextBox1Str;
+                        break;
+                    case 14:
+                        var page15 = new question15();
+                        label.Content = page15.TextBox1Str;
                         break;
                 }
 
