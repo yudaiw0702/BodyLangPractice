@@ -1064,7 +1064,7 @@ namespace BodyLangPractice
             }
             else
             {
-                if(!wasureru_flag || wasureru_time == 20)
+                if(wasureru_flag || wasureru_time == 20)
                 {
                     textBlock1.Text = "忘れる：◎";
                     image.Visibility = Visibility;
@@ -1187,7 +1187,7 @@ namespace BodyLangPractice
                     tanosii_time = 0;
                 }
             }
-            if (!wasureru_flag || tanosii_time == 20)
+            if (tanosii_flag || tanosii_time == 20)
             {
                 textBlock1.Text = "楽しい：◎";
                 image.Visibility = Visibility;
@@ -1202,6 +1202,7 @@ namespace BodyLangPractice
                 image.Visibility = Visibility.Hidden;
 
                 tanosii_time = 0;
+                tanosii_flag = true;
             }
         }
 
