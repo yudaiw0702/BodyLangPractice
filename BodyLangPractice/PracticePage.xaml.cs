@@ -893,7 +893,7 @@ namespace BodyLangPractice
                         {
                             textBlock1.Text = "集める：○";
                         }
-                        textBlock1.Text = "集める：" + result11.Confidence.ToString();
+                        textBlock2.Text = "集める：" + result11.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
                         if (result11.Confidence >= 0.3)
@@ -915,7 +915,7 @@ namespace BodyLangPractice
                         {
                             textBlock1.Text = "お疲れ様：○";
                         }
-                        textBlock1.Text = "お疲れ様：" + result12.Confidence.ToString();
+                        textBlock2.Text = "お疲れ様：" + result12.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
                         if (result12.Confidence >= 0.3)
@@ -937,7 +937,7 @@ namespace BodyLangPractice
                         {
                             textBlock1.Text = "寝る：○";
                         }
-                        textBlock1.Text = "寝る：" + result13.Confidence.ToString();
+                        textBlock2.Text = "寝る：" + result13.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
                         if (result13.Confidence >= 0.3)
@@ -959,7 +959,7 @@ namespace BodyLangPractice
                         {
                             textBlock1.Text = "携帯電話：○";
                         }
-                        textBlock1.Text = "携帯電話：" + result14.Confidence.ToString();
+                        textBlock2.Text = "携帯電話：" + result14.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
                         if (result14.Confidence >= 0.3)
@@ -981,7 +981,7 @@ namespace BodyLangPractice
                         {
                             textBlock1.Text = "マスク：○";
                         }
-                        textBlock1.Text = "マスク：" + result15.Confidence.ToString();
+                        textBlock2.Text = "マスク：" + result15.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
                         if (result15.Confidence >= 0.3)
