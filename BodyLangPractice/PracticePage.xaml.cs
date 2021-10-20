@@ -743,7 +743,7 @@ namespace BodyLangPractice
                         {
                             sw_wasureru(true);
                         }
-                        else if (result4.Progress <= 0.1)
+                        else if (result4.Progress <= 0.1) //グーで下の状態
                         {
                             sw_wasureru(false);
                         }
@@ -1054,7 +1054,7 @@ namespace BodyLangPractice
         {
             wasureru_time++;
             if (a) {
-                if (wasureru_time == 20)
+                if (wasureru_time == 20 && !wasureru_flag)
                 {
                     textBlock1.Text = "忘れる：○";
                     Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "パーで上げるOK");
@@ -1064,7 +1064,7 @@ namespace BodyLangPractice
             }
             else
             {
-                if(wasureru_flag || wasureru_time == 20)
+                if(wasureru_flag && wasureru_time == 20)
                 {
                     textBlock1.Text = "忘れる：◎";
                     image.Visibility = Visibility;
@@ -1292,10 +1292,6 @@ namespace BodyLangPractice
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "マスクの手話");
                 await Task.Delay(2000);
-
-                //次の問題に遷移
-                index_next++;
-                _navi.Navigate(uriList[index_next]);
 
                 image.Visibility = Visibility.Hidden;
             }
