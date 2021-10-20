@@ -682,9 +682,10 @@ namespace BodyLangPractice
                         textBlock2.Text = "おはよう：" + result1.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result1.Confidence >= 0.3) { 
-                            sw_ohayo(true); 
-                            textBlock1.Text = "おはよう：◎"; 
+                        if (result1.Confidence >= 0.3)
+                        {
+                            sw_ohayo(true);
+                            textBlock1.Text = "おはよう：◎";
                         }
                         else ohayo_time = 0;
                     }
@@ -700,7 +701,7 @@ namespace BodyLangPractice
                         {
                             textBlock1.Text = "おめでとう：○";
                         }
-                        
+
                         textBlock2.Text = "おめでとう：" + result2.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
@@ -833,10 +834,10 @@ namespace BodyLangPractice
                         textBlock2.Text = "作る：" + result8.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result8.Confidence >= 0.3) 
-                        { 
-                            sw_tukuru(true); 
-                            textBlock1.Text = "作る：◎"; 
+                        if (result8.Confidence >= 0.3)
+                        {
+                            sw_tukuru(true);
+                            textBlock1.Text = "作る：◎";
                         }
                         else tukuru_time = 0;
                     }
@@ -1053,7 +1054,8 @@ namespace BodyLangPractice
         private async void sw_wasureru(bool a)
         {
             wasureru_time++;
-            if (a) {
+            if (a)
+            {
                 if (wasureru_time == 20 && !wasureru_flag)
                 {
                     textBlock1.Text = "忘れる：○";
@@ -1064,7 +1066,7 @@ namespace BodyLangPractice
             }
             else
             {
-                if(wasureru_flag && wasureru_time == 20)
+                if (wasureru_flag && wasureru_time == 20)
                 {
                     textBlock1.Text = "忘れる：◎";
                     image.Visibility = Visibility;
@@ -1179,7 +1181,7 @@ namespace BodyLangPractice
             tanosii_time++;
             if (a)
             {
-                if (tanosii_time == 20)
+                if (tanosii_time == 20 && !tanosii_flag)
                 {
                     textBlock1.Text = "楽しい：○";
                     Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "右手上OK");
@@ -1187,7 +1189,7 @@ namespace BodyLangPractice
                     tanosii_time = 0;
                 }
             }
-            if (tanosii_flag || tanosii_time == 20)
+            if (tanosii_flag && tanosii_time == 20)
             {
                 textBlock1.Text = "楽しい：◎";
                 image.Visibility = Visibility;
@@ -1301,7 +1303,7 @@ namespace BodyLangPractice
 
 
         //お手本フレームのみのpage遷移
-        private  List<Uri> uriList = new List<Uri>() {
+        private List<Uri> uriList = new List<Uri>() {
             new Uri("/BodyLangModelPage/question1.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question2.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question3.xaml",UriKind.Relative),
@@ -1346,7 +1348,7 @@ namespace BodyLangPractice
             var titlePage = new TitlePage();
             NavigationService.Navigate(titlePage);
 
-            
+
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -1363,7 +1365,7 @@ namespace BodyLangPractice
             }
         }
 
-        
+
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
             if (index_next + 1 < uriList.Count)
@@ -1446,7 +1448,9 @@ namespace BodyLangPractice
 
         private void Help_Click(object sender, RoutedEventArgs e)
         {
+            HelpModal helpDialog = new HelpModal();
 
+            helpDialog.ShowDialog();
         }
     }
 }

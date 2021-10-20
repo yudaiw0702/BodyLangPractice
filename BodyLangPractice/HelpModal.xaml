@@ -1,0 +1,19 @@
+﻿<Window x:Class="BodyLangPractice.BodyLangModelPage.HelpModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BodyLangPractice.BodyLangModelPage"
+        mc:Ignorable="d"
+        Title="HelpModal" Height="381.048" Width="578.629">
+    <Grid Margin="0,1,0,-1">
+        <TextBlock x:Name="textBlock" FontSize="30" HorizontalAlignment="Left" Margin="227,0,0,0" TextWrapping="Wrap" Text="操作説明" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy" FontSize="20" HorizontalAlignment="Left" Margin="35,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="705" Height="42"><Run Text="左の手話を参考"/><Run Text="にポーズをとってください。"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy2" FontSize="30" HorizontalAlignment="Left" Margin="14,172,-148,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="705" Height="42" Text="手話の判定"/>
+        <TextBlock x:Name="textBlock_Copy3" FontSize="20" HorizontalAlignment="Left" Margin="14,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="383" Height="34" Text="判定：手話の判定を行っています。"/>
+        <TextBlock x:Name="textBlock_Copy4" FontSize="20" HorizontalAlignment="Left" Margin="35,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="411" Height="34"><Run Text="○"/><Run Text="：ほぼ一致しています。"/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy5" FontSize="20" HorizontalAlignment="Left" Margin="35,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="411" Height="34"><Run Text="◎"/><Run Text="：一致しています。"/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy6" FontSize="20" HorizontalAlignment="Left" Margin="35,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="705" Height="42"><Run Text="判定は３種類あり、◎が0.5秒続くと"/><Run Text="次の問題に移動します。"/></TextBlock>
+
+    </Grid>
+</Window>
