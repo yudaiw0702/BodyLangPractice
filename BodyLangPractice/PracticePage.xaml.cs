@@ -654,7 +654,7 @@ namespace BodyLangPractice
                     var result2 = gestureFrame.DiscreteGestureResults[omedeto];
                     var result3 = gestureFrame.DiscreteGestureResults[yasumu];
                     //忘れるの手話：1付近でパーで上げる、0付近で下げてるグー
-                    var result4 = gestureFrame.ContinuousGestureResults[wasureru];
+                    var result4 = gestureFrame.DiscreteGestureResults[wasureru];
                     var result5 = gestureFrame.DiscreteGestureResults[sumu];
                     var result6 = gestureFrame.DiscreteGestureResults[yamai];
                     var result7 = gestureFrame.DiscreteGestureResults[benkyo];
@@ -737,20 +737,22 @@ namespace BodyLangPractice
 
                     if (index_next == 3)
                     {
-                        textBlock2.Text = "忘れる：" + result4.Progress.ToString();
-                        var indexString = index_next + 1;
-                        textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result4.Progress >= 0.9) //パーで上げてる状態
-                        {
-                            sw_wasureru(true);
-                        }
-                        else if (result4.Progress <= 0.1) //グーで下の状態
-                        {
-                            sw_wasureru(false);
-                        }
-                        else
+                        if (result4.Confidence > 0.1)
                         {
                             textBlock1.Text = "忘れる：判定中";
+                        }
+
+                        if (result4.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "忘れる：○";
+                        }
+                        textBlock2.Text = "忘れる：" + result4.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
+                        if (result4.Confidence >= 0.3)
+                        {
+                            sw_wasureru(true);
+                            textBlock1.Text = "忘れる：◎";
                         }
                     }
 
