@@ -1056,34 +1056,19 @@ namespace BodyLangPractice
         private async void sw_wasureru(bool a)
         {
             wasureru_time++;
-            if (a)
+
+            if (wasureru_time == 20)
             {
-                if (wasureru_time == 20 && !wasureru_flag)
-                {
-                    textBlock1.Text = "忘れる：○";
-                    Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "パーで上げるOK");
-                    wasureru_flag = true;
-                    wasureru_time = 0;
-                }
-            }
-            else
-            {
-                if (wasureru_flag && wasureru_time == 20)
-                {
-                    textBlock1.Text = "忘れる：◎";
-                    image.Visibility = Visibility;
-                    Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "パーで上げるOK");
-                    await Task.Delay(2000);
-                    wasureru_flag = false;
+                image.Visibility = Visibility;
 
-                    //次の問題に遷移
-                    index_next++;
-                    _navi.Navigate(uriList[index_next]);
+                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "忘れるの手話");
+                await Task.Delay(2000);
 
-                    image.Visibility = Visibility.Hidden;
-                    wasureru_time = 0;
-                }
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
 
+                image.Visibility = Visibility.Hidden;
             }
         }
 
