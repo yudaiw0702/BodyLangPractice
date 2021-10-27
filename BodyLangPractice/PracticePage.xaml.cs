@@ -164,7 +164,6 @@ namespace BodyLangPractice
         private Gesture masuku;
 
         //Progress Gesture Frag
-        private Boolean wasureru_flag;
         private Boolean tanosii_flag;
 
         int index_next = 0;
@@ -780,19 +779,19 @@ namespace BodyLangPractice
 
                     if (index_next == 5)
                     {
-                        if (result6.Confidence > 0.1)
+                        if (result6.Confidence > 0.05)
                         {
                             textBlock1.Text = "病気：判定中";
                         }
 
-                        if (result6.Confidence > 0.2)
+                        if (result6.Confidence > 0.16)
                         {
                             textBlock1.Text = "病気：○";
                         }
                         textBlock2.Text = "病気：" + result6.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result6.Confidence >= 0.3)
+                        if (result6.Confidence >= 0.25)
                         {
                             sw_yamai(true);
                             textBlock1.Text = "病気：◎";
@@ -855,13 +854,13 @@ namespace BodyLangPractice
                         {
                             textBlock1.Text = "こんにちは：○";
                         }
-                        textBlock1.Text = "こんにちは：" + result9.Confidence.ToString();
+                        textBlock2.Text = "こんにちは：" + result9.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result9.Confidence >= 0.3)
+                        if (result9.Confidence >= 0.25)
                         {
                             sw_konnitiha(true);
-                            textBlock1.Text = "作る：◎";
+                            textBlock1.Text = "こんにちは：◎";
                         }
                         else konnitiha_time = 0;
                     }
@@ -871,11 +870,11 @@ namespace BodyLangPractice
                         textBlock2.Text = "楽しい：" + result10.Progress.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result10.Progress >= 0.9)
+                        if (result10.Progress >= 0.8)
                         {
                             sw_tanosii(true); //右手が上の状態
                         }
-                        else if (result10.Progress <= 0.1)
+                        else if (result10.Progress <= 0.2)
                         {
                             sw_tanosii(false);
                         }
@@ -1166,17 +1165,14 @@ namespace BodyLangPractice
         private async void sw_tanosii(bool a)
         {
             tanosii_time++;
-            if (a)
+            if (a && tanosii_time == 10)
             {
-                if (tanosii_time == 20 && !tanosii_flag)
-                {
-                    textBlock1.Text = "楽しい：○";
-                    Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "右手上OK");
-                    tanosii_flag = true;
-                    tanosii_time = 0;
-                }
+                textBlock1.Text = "楽しい：○";
+                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "右手上OK");
+                tanosii_flag = true;
+                tanosii_time = 0;
             }
-            if (tanosii_flag && tanosii_time == 20)
+            if (!a && tanosii_flag && tanosii_time == 10)
             {
                 textBlock1.Text = "楽しい：◎";
                 image.Visibility = Visibility;
@@ -1191,7 +1187,7 @@ namespace BodyLangPractice
                 image.Visibility = Visibility.Hidden;
 
                 tanosii_time = 0;
-                tanosii_flag = true;
+                tanosii_flag = false;
             }
         }
 
