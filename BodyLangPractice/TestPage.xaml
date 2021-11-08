@@ -1,0 +1,41 @@
+﻿<Page x:Class="BodyLangPractice.TestPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BodyLangPractice"
+      mc:Ignorable="d" 
+      d:DesignHeight="620" d:DesignWidth="1300"
+      Title="TestPage"
+      Loaded="TestPage_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="567*"/>
+            <RowDefinition Height="53*"/>
+        </Grid.RowDefinitions>
+        <Frame x:Name="frameModel" Loaded="FrameModel_Loaded" Content="Frame" HorizontalAlignment="Left" Height="132" VerticalAlignment="Top" Width="153" Margin="56,364,0,0"/>
+        <Border BorderThickness="1" BorderBrush="Black" Margin="732,101,198,58" >
+            <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
+        </Border>
+        <Image x:Name="image" Source="/BodyLangPractice;component/Picture/mark_maru.png" HorizontalAlignment="Left" Height="435" VerticalAlignment="Top" Width="435" Margin="687,74,0,0"/>
+        <Border BorderThickness="1" BorderBrush="Black" Margin="209,496,829,15" />
+        <StackPanel Orientation="Horizontal" Background="#FF043957" Grid.Row="1">
+            <Button x:Name="titleBtn" Content="タイトルへ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="10,14,0,0" Height="29" Click="TitleBtn_Click" Grid.Row="1"/>
+            <Button x:Name="helpBtn" Content="操作説明" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="20,14,0,0" Height="29" Click="Help_Click"/>
+            <Button x:Name="nextBtn" Content="次へ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="10,14,0,0" Height="29" Click="NextBtn_Click"/>
+        </StackPanel>
+        <StatusBar HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Height="0" Margin="0,0,0,53" Grid.Row="1">
+            <StatusBarItem Content="{Binding StatusText}" Height="33" Width="440" />
+        </StatusBar>
+        <TextBlock x:Name="textBlock_Copy" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="カメラ" VerticalAlignment="Top" Margin="880,34,0,0"/>
+        <Label x:Name="label" Content="test" FontSize="50" HorizontalAlignment="Left" Margin="315,156,0,0" VerticalAlignment="Top" Height="81" Width="187"/>
+        <TextBlock x:Name="textBlock1" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="927,422,0,0"/>
+        <TextBlock x:Name="textBlock2"  FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="aa" VerticalAlignment="Top" Margin="896,517,0,0" RenderTransformOrigin="1.13,2.494"/>
+        <TextBlock x:Name="textNumber" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0 / 10" VerticalAlignment="Top" Height="73" Width="184" Margin="296,364,0,0"/>
+        <TextBlock x:Name="textBlock_Copy2" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="問題数" VerticalAlignment="Top" Margin="315,319,0,0"/>
+        <TextBlock x:Name="textBlock_Copy3" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="問題" VerticalAlignment="Top" Margin="330,119,0,0" Height="77" Width="75"/>
+
+
+    </Grid>
+</Page>

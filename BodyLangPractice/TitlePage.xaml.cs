@@ -30,5 +30,11 @@ namespace BodyLangPractice
             var practicePage = new PracticePage();
             NavigationService.Navigate(practicePage);
         }
+
+        private void EvaluationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var testPage = new TestPage();
+            NavigationService.Navigate(testPage);
+        }
     }
 }

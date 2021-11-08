@@ -107,6 +107,9 @@
     <Compile Include="BodyLangModelPage\question1.xaml.cs">
       <DependentUpon>question1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PracticePage.xaml.cs">
       <DependentUpon>PracticePage.xaml</DependentUpon>
     </Compile>
@@ -189,6 +192,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TestPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PracticePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
