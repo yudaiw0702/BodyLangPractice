@@ -16,7 +16,10 @@
         <TextBlock x:Name="textBlock" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Result" VerticalAlignment="Top" Margin="561,10,0,0" Width="161" Height="67"/>
         <StackPanel Orientation="Horizontal" Background="#FF043957" Grid.Row="1">
             <Button x:Name="titleBtn" Content="タイトルへ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="10,14,0,0" Height="29" Click="TitleBtn_Click" Grid.Row="1"/>
+            <Button x:Name="titleBtn_Copy" Content="タイトルへ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="10,14,0,0" Height="29" Click="titleBtn_Copy_Click"/>
         </StackPanel>
         <TextBlock x:Name="textBlock_Copy" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="381,141,0,0" Width="492" Height="73"><Run Text="１０問中"/><Run Text="　　正解です"/></TextBlock>
+        <Label x:Name="incorrect_label" Content="リスト" FontSize="50" HorizontalAlignment="Center" Margin="184,337,692,0" VerticalAlignment="Top" Height="81" Width="424" HorizontalContentAlignment="Center"/>
+        <Label x:Name="correct" Content="?" FontSize="50" HorizontalAlignment="Center" Margin="580,136,618,0" VerticalAlignment="Top" Height="81" Width="102" HorizontalContentAlignment="Center"/>
     </Grid>
 </Page>

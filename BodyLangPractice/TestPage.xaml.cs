@@ -1,26 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Threading;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Kinect;
 using Microsoft.Kinect.VisualGestureBuilder;
-using System.Resources;
-using System.ComponentModel.Design;
-using System.Net;
-using System.Threading;
-using Microsoft.Win32;
 using System.ComponentModel;
 using BodyLangPractice.BodyLangModelPage;
 
@@ -152,19 +138,18 @@ namespace BodyLangPractice
         private Gesture yasumu;
         private Gesture wasureru;
         private Gesture sumu;
-        private Gesture yamai;
         private Gesture benkyo;
-        private Gesture tukuru;
-        private Gesture konnitiha;
-        private Gesture tanosii;
         private Gesture atumeru;
-        private Gesture otukaresama;
         private Gesture neru;
         private Gesture keitaidenwa;
         private Gesture masuku;
 
-        //Progress Gesture Frag
-        private Boolean tanosii_flag;
+        private Boolean isFirstClick = false;
+
+        public List<string> Incorrect;
+
+        public string IncorrectCount { get; private set; }
+        public string IncorrectList { get; private set; }
 
         int index_next = 0;
 
@@ -628,10 +613,6 @@ namespace BodyLangPractice
         int ohayo_time = 0, omedeto_time = 0, yasumu_time = 0, wasureru_time = 0, sumu_time = 0,
             atumeru_time = 0, neru_time = 0, keitaidenwa_time = 0, masuku_time = 0, benkyo_time = 0;
 
-        //正誤判定
-        bool ohayoc = false, omedetoc = false, yasumuc = false, wasureruc = false, sumuc = false,
-            atumeruc = false, neruc = false, keitaidenwac = false, masukuc = false, benkyoc = false;
-
         private void gestureFrameReader_FrameArrived(object sender, VisualGestureBuilderFrameArrivedEventArgs e)
         {
 
@@ -887,9 +868,6 @@ namespace BodyLangPractice
 
                 await Task.Delay(2000);
 
-                //正解
-                ohayoc = true;
-
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
@@ -907,9 +885,6 @@ namespace BodyLangPractice
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おめでとうの手話");
 
                 await Task.Delay(2000);
-
-                //正解
-                omedetoc = true;
 
                 //次の問題に遷移
                 index_next++;
@@ -929,8 +904,6 @@ namespace BodyLangPractice
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "休むの手話");
                 await Task.Delay(2000);
 
-                //正解
-                yasumuc = true;
 
                 //次の問題に遷移
                 index_next++;
@@ -951,9 +924,6 @@ namespace BodyLangPractice
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "忘れるの手話");
                 await Task.Delay(2000);
 
-                //正解
-                wasureruc = true;
-
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
@@ -973,9 +943,6 @@ namespace BodyLangPractice
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "住むの手話");
                 await Task.Delay(2000);
 
-                //正解
-                sumuc = true;
-
                 //Result画面に遷移
                 var resultPage = new ResultPage();
                 NavigationService.Navigate(resultPage);
@@ -994,9 +961,6 @@ namespace BodyLangPractice
 
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "勉強の手話");
                 await Task.Delay(2000);
-
-                //正解
-                
 
                 //次の問題に遷移
                 index_next++;
@@ -1089,7 +1053,7 @@ namespace BodyLangPractice
             new Uri("/BodyLangModelPage/question1.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question4.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question2.xaml",UriKind.Relative),
-            new Uri("/BodyLangModelPage/question10.xaml",UriKind.Relative),
+            new Uri("/BodyLangModelPage/question11.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question14.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question13.xaml",UriKind.Relative),
             new Uri("/BodyLangModelPage/question5.xaml",UriKind.Relative),
@@ -1108,12 +1072,18 @@ namespace BodyLangPractice
         }
 
 
-        private void NextBtn_Click(object sender, RoutedEventArgs e)
+        public void NextBtn_Click(object sender, RoutedEventArgs e)
         {
             if (index_next + 1 < uriList.Count)
             {
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                if (!isFirstClick)
+                {
+                    Incorrect = new List<string>();
+                    isFirstClick = true;
+                }
 
                 var indexString = index_next + 1;
                 textNumber.Text = indexString + " / " + uriList.Count;
@@ -1122,52 +1092,69 @@ namespace BodyLangPractice
 
                 switch (index_next)
                 {
-                    case 0:
+                    case 0: //yasumu
                         var page3 = new question3();
                         label.Content = page3.TextBox1Str;
                         break;
-                    case 1:
+                    case 1: //byoki
                         var page6 = new question6();
                         label.Content = page6.TextBox1Str;
+                        Incorrect.Add("休む");
+                        Console.WriteLine("[{0}]", string.Join(", ", Incorrect));
                         break;
-                    case 2:
+                    case 2: //masuku
                         var page15 = new question15();
                         label.Content = page15.TextBox1Str;
+                        Incorrect.Add("病気");
                         break;
-                    case 3:
+                    case 3: //ohayo
                         var page1 = new question1();
                         label.Content = page1.TextBox1Str;
+                        Incorrect.Add("マスク");
                         break;
-                    case 4:
+                    case 4: //wasureru
                         var page4 = new question4();
                         label.Content = page4.TextBox1Str;
+                        Incorrect.Add("おはよう");
                         break;
-                    case 5:
+                    case 5: //omedetou
                         var page2 = new question2();
                         label.Content = page2.TextBox1Str;
+                        Incorrect.Add("忘れる");
                         break;
-                    case 6:
-                        var page10 = new question10();
-                        label.Content = page10.TextBox1Str;
+                    case 6: //atumeru
+                        var page11 = new question11();
+                        label.Content = page11.TextBox1Str;
+                        Incorrect.Add("おめでとう");
                         break;
-                    case 7:
+                    case 7: //keitaidenwa
                         var page14 = new question14();
                         label.Content = page14.TextBox1Str;
+                        Incorrect.Add("集める");
                         break;
-                    case 8:
+                    case 8: //neru
                         var page13 = new question13();
                         label.Content = page13.TextBox1Str;
+                        Incorrect.Add("携帯電話");
                         break;
-                    case 9:
+                    case 9: //sumu
                         var page5 = new question5();
                         label.Content = page5.TextBox1Str;
+                        Incorrect.Add("寝る");
+                        Console.WriteLine("[{0}]", string.Join(", ", Incorrect));
                         break;
                 }
             }
             else
             {
+                IncorrectList = string.Join(", ", Incorrect).ToString();
+                IncorrectCount = Incorrect.Count.ToString();
+
                 var resultPage = new ResultPage();
                 NavigationService.Navigate(resultPage);
+                Console.WriteLine(Incorrect.Count);
+                Console.WriteLine(string.Join(", ", Incorrect).ToString());
+                
             }
         }
 

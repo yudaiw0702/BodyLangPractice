@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BodyLangPractice
 {
@@ -29,6 +19,18 @@ namespace BodyLangPractice
         {
             var titlePage = new TitlePage();
             NavigationService.Navigate(titlePage);
+        }
+
+        private void titleBtn_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            var testPage = new TestPage();
+
+            
+            correct.Content = testPage.IncorrectCount;
+
+            Console.WriteLine(testPage.IncorrectCount);
+
+            incorrect_label.Content = testPage.IncorrectList;
         }
     }
 }
