@@ -570,20 +570,10 @@ namespace BodyLangPractice
                 { wasureru = gesture; }
                 if (gesture.Name == "sumu") //住む
                 { sumu = gesture; }
-                if (gesture.Name == "yamai") //病気
-                { yamai = gesture; }
                 if (gesture.Name == "benkyo") //勉強
                 { benkyo = gesture; }
-                if (gesture.Name == "tukuru") //作る
-                { tukuru = gesture; }
-                if (gesture.Name == "konnitiha") //こんにちは
-                { konnitiha = gesture; }
-                if (gesture.Name == "tanosii") //楽しい
-                { tanosii = gesture; }
                 if (gesture.Name == "atumeru") //集める
                 { atumeru = gesture; }
-                if (gesture.Name == "otukaresama") //お疲れ様
-                { otukaresama = gesture; }
                 if (gesture.Name == "neru") //寝る
                 { neru = gesture; }
                 if (gesture.Name == "keitaidenwa") //携帯電話
@@ -636,8 +626,11 @@ namespace BodyLangPractice
 
         //gestureの判定時間管理
         int ohayo_time = 0, omedeto_time = 0, yasumu_time = 0, wasureru_time = 0, sumu_time = 0,
-            yamai_time = 0, benkyo_time = 0, tukuru_time = 0, konnitiha_time = 0, tanosii_time = 0,
-            atumeru_time = 0, otukaresama_time = 0, neru_time = 0, keitaidenwa_time = 0, masuku_time = 0;
+            atumeru_time = 0, neru_time = 0, keitaidenwa_time = 0, masuku_time = 0, benkyo_time = 0;
+
+        //正誤判定
+        bool ohayoc = false, omedetoc = false, yasumuc = false, wasureruc = false, sumuc = false,
+            atumeruc = false, neruc = false, keitaidenwac = false, masukuc = false, benkyoc = false;
 
         private void gestureFrameReader_FrameArrived(object sender, VisualGestureBuilderFrameArrivedEventArgs e)
         {
@@ -652,17 +645,10 @@ namespace BodyLangPractice
                     var result1 = gestureFrame.DiscreteGestureResults[ohayo];
                     var result2 = gestureFrame.DiscreteGestureResults[omedeto];
                     var result3 = gestureFrame.DiscreteGestureResults[yasumu];
-                    //忘れるの手話：1付近でパーで上げる、0付近で下げてるグー
                     var result4 = gestureFrame.DiscreteGestureResults[wasureru];
                     var result5 = gestureFrame.DiscreteGestureResults[sumu];
-                    var result6 = gestureFrame.DiscreteGestureResults[yamai];
                     var result7 = gestureFrame.DiscreteGestureResults[benkyo];
-                    var result8 = gestureFrame.DiscreteGestureResults[tukuru];
-                    var result9 = gestureFrame.DiscreteGestureResults[konnitiha];
-                    //楽しいの手話：右手上で1付近、左手上で0付近
-                    var result10 = gestureFrame.ContinuousGestureResults[tanosii];
                     var result11 = gestureFrame.DiscreteGestureResults[atumeru];
-                    var result12 = gestureFrame.DiscreteGestureResults[otukaresama];
                     var result13 = gestureFrame.DiscreteGestureResults[neru];
                     var result14 = gestureFrame.DiscreteGestureResults[keitaidenwa];
                     var result15 = gestureFrame.DiscreteGestureResults[masuku];
@@ -777,28 +763,6 @@ namespace BodyLangPractice
                         else sumu_time = 0;
                     }
 
-                    if (index_next == 5)
-                    {
-                        if (result6.Confidence > 0.05)
-                        {
-                            textBlock1.Text = "病気：判定中";
-                        }
-
-                        if (result6.Confidence > 0.16)
-                        {
-                            textBlock1.Text = "病気：○";
-                        }
-                        textBlock2.Text = "病気：" + result6.Confidence.ToString();
-                        var indexString = index_next + 1;
-                        textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result6.Confidence >= 0.25)
-                        {
-                            sw_yamai(true);
-                            textBlock1.Text = "病気：◎";
-                        }
-                        else yamai_time = 0;
-                    }
-
                     if (index_next == 6)
                     {
                         if (result7.Confidence > 0.1)
@@ -821,69 +785,6 @@ namespace BodyLangPractice
                         else benkyo_time = 0;
                     }
 
-                    if (index_next == 7)
-                    {
-                        if (result8.Confidence > 0.1)
-                        {
-                            textBlock1.Text = "作る：判定中";
-                        }
-
-                        if (result8.Confidence > 0.2)
-                        {
-                            textBlock1.Text = "作る：○";
-                        }
-                        textBlock2.Text = "作る：" + result8.Confidence.ToString();
-                        var indexString = index_next + 1;
-                        textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result8.Confidence >= 0.3)
-                        {
-                            sw_tukuru(true);
-                            textBlock1.Text = "作る：◎";
-                        }
-                        else tukuru_time = 0;
-                    }
-
-                    if (index_next == 8)
-                    {
-                        if (result9.Confidence > 0.1)
-                        {
-                            textBlock1.Text = "こんにちは：判定中";
-                        }
-
-                        if (result9.Confidence > 0.2)
-                        {
-                            textBlock1.Text = "こんにちは：○";
-                        }
-                        textBlock2.Text = "こんにちは：" + result9.Confidence.ToString();
-                        var indexString = index_next + 1;
-                        textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result9.Confidence >= 0.25)
-                        {
-                            sw_konnitiha(true);
-                            textBlock1.Text = "こんにちは：◎";
-                        }
-                        else konnitiha_time = 0;
-                    }
-
-                    if (index_next == 9)
-                    {
-                        textBlock2.Text = "楽しい：" + result10.Progress.ToString();
-                        var indexString = index_next + 1;
-                        textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result10.Progress >= 0.8)
-                        {
-                            sw_tanosii(true); //右手が上の状態
-                        }
-                        else if (result10.Progress <= 0.2)
-                        {
-                            sw_tanosii(false);
-                        }
-                        else
-                        {
-                            textBlock1.Text = "楽しい：判定中";
-                        }
-                    }
-
                     if (index_next == 10)
                     {
                         if (result11.Confidence > 0.1)
@@ -904,28 +805,6 @@ namespace BodyLangPractice
                             textBlock1.Text = "集める：◎";
                         }
                         else atumeru_time = 0;
-                    }
-
-                    if (index_next == 11)
-                    {
-                        if (result12.Confidence > 0.1)
-                        {
-                            textBlock1.Text = "お疲れ様：判定中";
-                        }
-
-                        if (result12.Confidence > 0.2)
-                        {
-                            textBlock1.Text = "お疲れ様：○";
-                        }
-                        textBlock2.Text = "お疲れ様：" + result12.Confidence.ToString();
-                        var indexString = index_next + 1;
-                        textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result12.Confidence >= 0.3)
-                        {
-                            sw_otukaresama(true);
-                            textBlock1.Text = "お疲れ様：◎";
-                        }
-                        else otukaresama_time = 0;
                     }
 
                     if (index_next == 12)
@@ -1008,6 +887,9 @@ namespace BodyLangPractice
 
                 await Task.Delay(2000);
 
+                //正解
+                ohayoc = true;
+
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
@@ -1026,6 +908,9 @@ namespace BodyLangPractice
 
                 await Task.Delay(2000);
 
+                //正解
+                omedetoc = true;
+
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
@@ -1043,6 +928,9 @@ namespace BodyLangPractice
 
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "休むの手話");
                 await Task.Delay(2000);
+
+                //正解
+                yasumuc = true;
 
                 //次の問題に遷移
                 index_next++;
@@ -1063,6 +951,9 @@ namespace BodyLangPractice
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "忘れるの手話");
                 await Task.Delay(2000);
 
+                //正解
+                wasureruc = true;
+
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
@@ -1082,31 +973,17 @@ namespace BodyLangPractice
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "住むの手話");
                 await Task.Delay(2000);
 
-                //次の問題に遷移
-                index_next++;
-                _navi.Navigate(uriList[index_next]);
+                //正解
+                sumuc = true;
+
+                //Result画面に遷移
+                var resultPage = new ResultPage();
+                NavigationService.Navigate(resultPage);
 
                 image.Visibility = Visibility.Hidden;
             }
         }
-        private async void sw_yamai(bool a)
-        {
-            yamai_time++;
 
-            if (yamai_time == 20)
-            {
-                image.Visibility = Visibility;
-
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "病気の手話");
-                await Task.Delay(2000);
-
-                //次の問題に遷移
-                index_next++;
-                _navi.Navigate(uriList[index_next]);
-
-                image.Visibility = Visibility.Hidden;
-            }
-        }
         private async void sw_benkyo(bool a)
         {
             benkyo_time++;
@@ -1118,23 +995,8 @@ namespace BodyLangPractice
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "勉強の手話");
                 await Task.Delay(2000);
 
-                //次の問題に遷移
-                index_next++;
-                _navi.Navigate(uriList[index_next]);
-
-                image.Visibility = Visibility.Hidden;
-            }
-        }
-        private async void sw_tukuru(bool a)
-        {
-            tukuru_time++;
-
-            if (tukuru_time == 20)
-            {
-                image.Visibility = Visibility;
-
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "作るの手話");
-                await Task.Delay(2000);
+                //正解
+                
 
                 //次の問題に遷移
                 index_next++;
@@ -1143,54 +1005,7 @@ namespace BodyLangPractice
                 image.Visibility = Visibility.Hidden;
             }
         }
-        private async void sw_konnitiha(bool a)
-        {
-            konnitiha_time++;
-
-            if (konnitiha_time == 20)
-            {
-                image.Visibility = Visibility;
-
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "こんにちはの手話");
-                await Task.Delay(2000);
-
-                //次の問題に遷移
-                index_next++;
-                _navi.Navigate(uriList[index_next]);
-
-                image.Visibility = Visibility.Hidden;
-            }
-        }
-
-        private async void sw_tanosii(bool a)
-        {
-            tanosii_time++;
-            if (a && tanosii_time == 10)
-            {
-                textBlock1.Text = "楽しい：○";
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "右手上OK");
-                tanosii_flag = true;
-                tanosii_time = 0;
-            }
-            if (!a && tanosii_flag && tanosii_time == 10)
-            {
-                textBlock1.Text = "楽しい：◎";
-                image.Visibility = Visibility;
-
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "右手下OK");
-                await Task.Delay(2000);
-
-                //次の問題に遷移
-                index_next++;
-                _navi.Navigate(uriList[index_next]);
-
-                image.Visibility = Visibility.Hidden;
-
-                tanosii_time = 0;
-                tanosii_flag = false;
-            }
-        }
-
+  
         private async void sw_atumeru(bool a)
         {
             atumeru_time++;
@@ -1200,25 +1015,6 @@ namespace BodyLangPractice
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "集めるの手話");
-                await Task.Delay(2000);
-
-                //次の問題に遷移
-                index_next++;
-                _navi.Navigate(uriList[index_next]);
-
-                image.Visibility = Visibility.Hidden;
-            }
-        }
-
-        private async void sw_otukaresama(bool a)
-        {
-            otukaresama_time++;
-
-            if (otukaresama_time == 20)
-            {
-                image.Visibility = Visibility;
-
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "お疲れ様の手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1309,8 +1105,6 @@ namespace BodyLangPractice
         {
             var titlePage = new TitlePage();
             NavigationService.Navigate(titlePage);
-
-
         }
 
 
@@ -1369,8 +1163,11 @@ namespace BodyLangPractice
                         label.Content = page5.TextBox1Str;
                         break;
                 }
-
-                Console.WriteLine(index_next);
+            }
+            else
+            {
+                var resultPage = new ResultPage();
+                NavigationService.Navigate(resultPage);
             }
         }
 

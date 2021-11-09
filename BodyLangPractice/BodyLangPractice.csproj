@@ -113,6 +113,9 @@
     <Compile Include="PracticePage.xaml.cs">
       <DependentUpon>PracticePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ResultPage.xaml.cs">
+      <DependentUpon>ResultPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TitlePage.xaml.cs">
       <DependentUpon>TitlePage.xaml</DependentUpon>
     </Compile>
@@ -200,6 +203,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResultPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TitlePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -273,6 +280,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Picture\masuku.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
