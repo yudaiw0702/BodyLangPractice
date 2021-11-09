@@ -24,7 +24,7 @@ namespace BodyLangPractice.BodyLangModelPage
         public question6()
         {
             InitializeComponent();
-            TextBox1Str = "病気の手話です";
+            TextBox1Str = "病気";
         }
     }
 }
