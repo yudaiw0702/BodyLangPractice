@@ -19,7 +19,7 @@
             <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
         </Border>
         <Image x:Name="image" Source="/BodyLangPractice;component/Picture/mark_maru.png" HorizontalAlignment="Left" Height="435" VerticalAlignment="Top" Width="435" Margin="410,74,0,0"/>
-        <Border BorderThickness="1" BorderBrush="Black" Margin="209,496,829,15" />
+        <Border BorderThickness="1" BorderBrush="Black" Margin="981,440,57,71" />
         <StackPanel Orientation="Horizontal" Background="#FF043957" Grid.Row="1">
             <Button x:Name="titleBtn" Content="タイトルへ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="10,14,0,0" Height="29" Click="TitleBtn_Click" Grid.Row="1"/>
             <Button x:Name="helpBtn" Content="操作説明" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" Margin="20,14,0,0" Height="29" Click="Help_Click"/>
@@ -35,7 +35,6 @@
         <TextBlock x:Name="textNumber" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0 / 10" VerticalAlignment="Top" Height="73" Width="184" Margin="296,364,0,0"/>
         <TextBlock x:Name="textBlock_Copy2" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="問題数" VerticalAlignment="Top" Margin="315,319,0,0"/>
         <TextBlock x:Name="textBlock_Copy3" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="問題" VerticalAlignment="Top" Margin="330,119,0,0" Height="77" Width="75"/>
-
-
+        <TextBlock x:Name="textBlock_Copy1" FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="96,501,0,0" Height="56" Width="631" Text="※分からない場合は[次へ]を押してください"/>
     </Grid>
 </Page>

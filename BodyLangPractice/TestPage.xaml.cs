@@ -148,8 +148,8 @@ namespace BodyLangPractice
 
         public List<string> Incorrect;
 
-        public string IncorrectCount { get; private set; }
-        public string IncorrectList { get; private set; }
+        public string IncorrectCount { get; set; }
+        public string IncorrectList { get; private set; } = "";
 
         int index_next = 0;
 
@@ -944,7 +944,7 @@ namespace BodyLangPractice
                 await Task.Delay(2000);
 
                 //Result画面に遷移
-                var resultPage = new ResultPage();
+                var resultPage = new ResultPage(IncorrectList, IncorrectCount);
                 NavigationService.Navigate(resultPage);
 
                 image.Visibility = Visibility.Hidden;
@@ -1038,6 +1038,10 @@ namespace BodyLangPractice
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "マスクの手話");
                 await Task.Delay(2000);
 
+                //次の問題に遷移
+                index_next++;
+                _navi.Navigate(uriList[index_next]);
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1100,7 +1104,6 @@ namespace BodyLangPractice
                         var page6 = new question6();
                         label.Content = page6.TextBox1Str;
                         Incorrect.Add("休む");
-                        Console.WriteLine("[{0}]", string.Join(", ", Incorrect));
                         break;
                     case 2: //masuku
                         var page15 = new question15();
@@ -1141,19 +1144,18 @@ namespace BodyLangPractice
                         var page5 = new question5();
                         label.Content = page5.TextBox1Str;
                         Incorrect.Add("寝る");
-                        Console.WriteLine("[{0}]", string.Join(", ", Incorrect));
                         break;
                 }
             }
-            else
+            else //10回目の処理
             {
+                Incorrect.Add("住む");
                 IncorrectList = string.Join(", ", Incorrect).ToString();
-                IncorrectCount = Incorrect.Count.ToString();
 
-                var resultPage = new ResultPage();
+                IncorrectCount = (10 - Incorrect.Count).ToString();
+
+                var resultPage = new ResultPage(IncorrectList, IncorrectCount);
                 NavigationService.Navigate(resultPage);
-                Console.WriteLine(Incorrect.Count);
-                Console.WriteLine(string.Join(", ", Incorrect).ToString());
                 
             }
         }

@@ -10,27 +10,21 @@ namespace BodyLangPractice
     /// </summary>
     public partial class ResultPage : Page
     {
-        public ResultPage()
+        public ResultPage(string str1, string str2)
         {
             InitializeComponent();
+
+            //間違えた手話の表示
+            incorrect_label.Content = str1;
+
+            //正解数の表示
+            correct.Content = str2;
         }
 
         private void TitleBtn_Click(object sender, RoutedEventArgs e)
         {
             var titlePage = new TitlePage();
             NavigationService.Navigate(titlePage);
-        }
-
-        private void titleBtn_Copy_Click(object sender, RoutedEventArgs e)
-        {
-            var testPage = new TestPage();
-
-            
-            correct.Content = testPage.IncorrectCount;
-
-            Console.WriteLine(testPage.IncorrectCount);
-
-            incorrect_label.Content = testPage.IncorrectList;
         }
     }
 }
