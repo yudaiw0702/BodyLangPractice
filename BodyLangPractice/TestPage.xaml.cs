@@ -635,7 +635,7 @@ namespace BodyLangPractice
                     var result15 = gestureFrame.DiscreteGestureResults[masuku];
 
 
-                    if (index_next == 0)
+                    if (index_next == 3)
                     {
                         if (result1.Confidence > 0.1)
                         {
@@ -656,7 +656,7 @@ namespace BodyLangPractice
                         else ohayo_time = 0;
                     }
 
-                    if (index_next == 1)
+                    if (index_next == 5)
                     {
                         if (result1.Confidence > 0.1)
                         {
@@ -679,7 +679,7 @@ namespace BodyLangPractice
                         else omedeto_time = 0;
                     }
 
-                    if (index_next == 2)
+                    if (index_next == 0)
                     {
                         if (result3.Confidence > 0.1)
                         {
@@ -701,7 +701,7 @@ namespace BodyLangPractice
                         else yasumu_time = 0;
                     }
 
-                    if (index_next == 3)
+                    if (index_next == 4)
                     {
                         if (result4.Confidence > 0.1)
                         {
@@ -722,7 +722,7 @@ namespace BodyLangPractice
                         }
                     }
 
-                    if (index_next == 4)
+                    if (index_next == 9)
                     {
                         if (result5.Confidence > 0.1)
                         {
@@ -744,7 +744,7 @@ namespace BodyLangPractice
                         else sumu_time = 0;
                     }
 
-                    if (index_next == 6)
+                    if (index_next == 1)
                     {
                         if (result7.Confidence > 0.1)
                         {
@@ -766,7 +766,7 @@ namespace BodyLangPractice
                         else benkyo_time = 0;
                     }
 
-                    if (index_next == 10)
+                    if (index_next == 6)
                     {
                         if (result11.Confidence > 0.1)
                         {
@@ -788,7 +788,7 @@ namespace BodyLangPractice
                         else atumeru_time = 0;
                     }
 
-                    if (index_next == 12)
+                    if (index_next == 8)
                     {
                         if (result13.Confidence > 0.1)
                         {
@@ -810,7 +810,7 @@ namespace BodyLangPractice
                         else neru_time = 0;
                     }
 
-                    if (index_next == 13)
+                    if (index_next == 7)
                     {
                         if (result14.Confidence > 0.1)
                         {
@@ -832,7 +832,7 @@ namespace BodyLangPractice
                         else keitaidenwa_time = 0;
                     }
 
-                    if (index_next == 14)
+                    if (index_next == 2)
                     {
                         if (result15.Confidence > 0.1)
                         {
@@ -872,6 +872,9 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                var page4 = new question4();
+                label.Content = page4.TextBox1Str;
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -889,6 +892,9 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                var page = new question11();
+                label.Content = page.TextBox1Str;
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -909,6 +915,9 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                var page = new question6();
+                label.Content = page.TextBox1Str;
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -927,6 +936,9 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                var page = new question2();
+                label.Content = page.TextBox1Str;
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -966,6 +978,9 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                var page = new question15();
+                label.Content = page.TextBox1Str;
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -984,6 +999,9 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                var page = new question14();
+                label.Content = page.TextBox1Str;
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -1004,6 +1022,9 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                var page = new question5();
+                label.Content = page.TextBox1Str;
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1023,6 +1044,9 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                var page = new question13();
+                label.Content = page.TextBox1Str;
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1041,6 +1065,9 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                var page = new question1();
+                label.Content = page.TextBox1Str;
 
                 image.Visibility = Visibility.Hidden;
             }
