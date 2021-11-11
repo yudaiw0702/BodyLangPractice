@@ -15,6 +15,6 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="textBlock" FontSize="50" HorizontalAlignment="Left" TextWrapping="Wrap" Text="手話学習支援システム for Kinect" VerticalAlignment="Top" Margin="296,143,0,0" Width="684" Height="67"/>
         <Button x:Name="startBtn" FontSize="30" Content="スタート" HorizontalAlignment="Left" VerticalAlignment="Top" Width="213" Margin="536,45,0,0" Grid.Row="1" Height="50" Click="StartBtn_Click"/>
-        <Button x:Name="evaluationBtn" FontSize="30" Content="評価実験" HorizontalAlignment="Left" VerticalAlignment="Top" Width="213" Margin="536,189,0,0" Grid.Row="1" Height="50" Click="EvaluationBtn_Click"/>
+        <Button x:Name="evaluationBtn" FontSize="30" Content="テスト" HorizontalAlignment="Left" VerticalAlignment="Top" Width="213" Margin="536,189,0,0" Grid.Row="1" Height="50" Click="EvaluationBtn_Click"/>
     </Grid>
 </Page>
