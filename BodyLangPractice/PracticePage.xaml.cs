@@ -168,6 +168,9 @@ namespace BodyLangPractice
 
         int index_next = 0;
 
+        public int next_push_count;
+        public static int correct_count;
+
         public PracticePage()
         {
             // one sensor is currently supported
@@ -1012,6 +1015,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                count();
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1030,6 +1035,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                count();
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1047,6 +1054,8 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                count();
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -1067,6 +1076,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                count();
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1086,6 +1097,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                count();
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1103,6 +1116,8 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                count();
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -1122,6 +1137,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                count();
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1140,6 +1157,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                count();
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1157,6 +1176,8 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                count();
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -1184,6 +1205,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                count();
+
                 image.Visibility = Visibility.Hidden;
 
                 tanosii_time = 0;
@@ -1206,6 +1229,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                count();
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1225,6 +1250,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                count();
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1243,6 +1270,8 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                count();
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -1304,6 +1333,13 @@ namespace BodyLangPractice
             new Uri("/BodyLangModelPage/question15.xaml",UriKind.Relative),
         };
 
+        private void count()
+        {
+            correct_count++;
+            MainWindow mw = new MainWindow();
+            mw.countC(correct_count);
+        }
+
         //お手本フレーム最初のページ設定
         private void FrameModel_Loaded(object sender, RoutedEventArgs e)
         {
@@ -1351,6 +1387,11 @@ namespace BodyLangPractice
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
+            next_push_count++;
+
+            MainWindow mw = new MainWindow();
+            mw.count(next_push_count);
+
             if (index_next + 1 < uriList.Count)
             {
                 index_next++;
@@ -1426,6 +1467,16 @@ namespace BodyLangPractice
                 }
 
                 Console.WriteLine(index_next);
+            }
+            else
+            {
+                //１５問目で次へを押したときにいろいろ初期化
+                index_next = 0;
+                var page1 = new question1();
+                label.Content = page1.TextBox1Str;
+
+                textNumber.Text = 0 + " / " + uriList.Count;
+                _navi.Navigate(uriList[0]);
             }
         }
 
