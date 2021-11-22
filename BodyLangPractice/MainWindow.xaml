@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BodyLangPractice"
         mc:Ignorable="d"
-        Title="手話学習支援アプリ" Height="700" Width="1300">
+        Title="手話学習支援アプリ" Height="700" Width="1300"
+        Closing="Window_Closing">
     <Grid Margin="0,0,2,0">
         
         <Frame Name="frame" NavigationUIVisibility="Hidden"/>
