@@ -4,11 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BodyLangPractice.BodyLangModelPage"
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
       mc:Ignorable="d" 
       d:DesignHeight="408" d:DesignWidth="370"
       Title="question8">
 
     <Grid>
-        <Image x:Name="___BodyLangPractice_component_sumu_jpg" Margin="50,30,56,20" Source="/BodyLangPractice;component/Picture/tukuru.jpg" Stretch="Fill"/>
+        <Image gif:ImageBehavior.AnimatedSource="/BodyLangPractice;component/Movie/tukuru.gif" Margin="10,10,10,64" />
+        <TextBlock x:Name="textBlock" FontSize="40" HorizontalAlignment="Left" Margin="147,355,0,-1" TextWrapping="Wrap" Text="作る" VerticalAlignment="Top"/>
     </Grid>
 </Page>

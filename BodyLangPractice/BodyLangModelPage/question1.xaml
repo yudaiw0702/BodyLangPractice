@@ -6,9 +6,11 @@
       xmlns:local="clr-namespace:BodyLangPractice.BodyLangModelPage"
       mc:Ignorable="d" 
       d:DesignHeight="408" d:DesignWidth="370"
-      Title="question1">
+      Title="question1"
+      xmlns:gif="http://wpfanimatedgif.codeplex.com">
 
     <Grid>
-        <Image x:Name="___BodyLangPractice_component_ohayo_jpg" Margin="62,40,51,44" Source="/BodyLangPractice;component/Picture/ohayo.jpg" Stretch="Fill"/>
+        <Image gif:ImageBehavior.AnimatedSource="/BodyLangPractice;component/Movie/ohayo.gif" Margin="10,10,10,64" />
+        <TextBlock x:Name="textBlock" FontSize="40" HorizontalAlignment="Left" Margin="122,355,0,0" TextWrapping="Wrap" Text="おはよう" VerticalAlignment="Top"/>
     </Grid>
 </Page>
