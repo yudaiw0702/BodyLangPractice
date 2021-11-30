@@ -1387,20 +1387,19 @@ namespace BodyLangPractice
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
+            //次へを押した回数を記録する
             next_push_count++;
-
             MainWindow mw = new MainWindow();
             mw.count(next_push_count);
 
+            //15問以下の場合の処理
             if (index_next + 1 < uriList.Count)
             {
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
+               
                 var indexString = index_next + 1;
                 textNumber.Text = indexString + " / " + uriList.Count;
-
-                //page遷移はこれでやる（http://gushwell.ldblog.jp/archives/52335648.html）
 
                 switch (index_next)
                 {
