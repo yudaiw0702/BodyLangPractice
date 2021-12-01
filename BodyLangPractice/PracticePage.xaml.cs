@@ -677,6 +677,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "おはよう：◎";
                         }
                         else ohayo_time = 0;
+
+                        if(ohayo_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result1.Confidence * 100);
+                            Console.WriteLine(dt + " おはよう：" + result + "%");
+                        }
                     }
 
                     if (index_next == 1)
@@ -700,6 +707,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "おめでとう：◎";
                         }
                         else omedeto_time = 0;
+
+                        if (omedeto_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result2.Confidence * 100);
+                            Console.WriteLine(dt + " おめでとう：" + result + "%");
+                        }
                     }
 
                     if (index_next == 2)
@@ -722,6 +736,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "休む：◎";
                         }
                         else yasumu_time = 0;
+
+                        if (yasumu_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result3.Confidence * 100);
+                            Console.WriteLine(dt + " 休む：" + result + "%");
+                        }
                     }
 
                     if (index_next == 3)
@@ -742,6 +763,13 @@ namespace BodyLangPractice
                         {
                             sw_wasureru(true);
                             textBlock1.Text = "忘れる：◎";
+                        }
+
+                        if (wasureru_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result4.Confidence * 100);
+                            Console.WriteLine(dt + " 忘れる：" + result + "%");
                         }
                     }
 
@@ -765,6 +793,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "住む：◎";
                         }
                         else sumu_time = 0;
+
+                        if (sumu_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result5.Confidence * 100);
+                            Console.WriteLine(dt + " 住む：" + result + "%");
+                        }
                     }
 
                     if (index_next == 5)
@@ -787,6 +822,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "病気：◎";
                         }
                         else yamai_time = 0;
+
+                        if (yamai_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result6.Confidence * 100);
+                            Console.WriteLine(dt + " 病気：" + result + "%");
+                        }
                     }
 
                     if (index_next == 6)
@@ -809,6 +851,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "勉強：◎";
                         }
                         else benkyo_time = 0;
+
+                        if (benkyo_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result7.Confidence * 100);
+                            Console.WriteLine(dt + " 勉強：" + result + "%");
+                        }
                     }
 
                     if (index_next == 7)
@@ -831,6 +880,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "作る：◎";
                         }
                         else tukuru_time = 0;
+
+                        if (tukuru_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result8.Confidence * 100);
+                            Console.WriteLine(dt + " 作る：" + result + "%");
+                        }
                     }
 
                     if (index_next == 8)
@@ -853,6 +909,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "こんにちは：◎";
                         }
                         else konnitiha_time = 0;
+
+                        if (konnitiha_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result9.Confidence * 100);
+                            Console.WriteLine(dt + " こんにちは：" + result + "%");
+                        }
                     }
 
                     if (index_next == 9)
@@ -871,6 +934,13 @@ namespace BodyLangPractice
                         else
                         {
                             textBlock1.Text = "楽しい：判定中";
+                        }
+
+                        if (tanosii_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result10.Progress * 100);
+                            Console.WriteLine(dt + " 楽しい：" + result + "%");
                         }
                     }
 
@@ -894,6 +964,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "集める：◎";
                         }
                         else atumeru_time = 0;
+
+                        if (atumeru_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result11.Confidence * 100);
+                            Console.WriteLine(dt + " 集める：" + result + "%");
+                        }
                     }
 
                     if (index_next == 11)
@@ -916,6 +993,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "お疲れ様：◎";
                         }
                         else otukaresama_time = 0;
+
+                        if (otukaresama_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result12.Confidence * 100);
+                            Console.WriteLine(dt + " お疲れ様：" + result + "%");
+                        }
                     }
 
                     if (index_next == 12)
@@ -938,6 +1022,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "寝る：◎";
                         }
                         else neru_time = 0;
+
+                        if (neru_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result13.Confidence * 100);
+                            Console.WriteLine(dt + " 寝る：" + result + "%");
+                        }
                     }
 
                     if (index_next == 13)
@@ -960,6 +1051,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "携帯電話：◎";
                         }
                         else keitaidenwa_time = 0;
+
+                        if (keitaidenwa_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result14.Confidence * 100);
+                            Console.WriteLine(dt + " 携帯電話：" + result + "%");
+                        }
                     }
 
                     if (index_next == 14)
@@ -982,6 +1080,13 @@ namespace BodyLangPractice
                             textBlock1.Text = "マスク：◎";
                         }
                         else masuku_time = 0;
+
+                        if (masuku_time == 20)
+                        {
+                            DateTime dt = DateTime.Now;
+                            double result = Math.Round(result15.Confidence * 100);
+                            Console.WriteLine(dt + " マスク：" + result + "%");
+                        }
                     }
                 }
             }
