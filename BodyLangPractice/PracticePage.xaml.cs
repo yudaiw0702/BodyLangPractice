@@ -993,6 +993,8 @@ namespace BodyLangPractice
 
             if (ohayo_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "おはようの手話");
 
@@ -1001,8 +1003,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1015,6 +1015,8 @@ namespace BodyLangPractice
 
             if (omedeto_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おめでとうの手話");
 
@@ -1023,8 +1025,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1037,6 +1037,8 @@ namespace BodyLangPractice
 
             if (yasumu_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "休むの手話");
@@ -1045,8 +1047,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1060,6 +1060,8 @@ namespace BodyLangPractice
 
             if (wasureru_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "忘れるの手話");
@@ -1068,8 +1070,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1083,6 +1083,8 @@ namespace BodyLangPractice
 
             if (sumu_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "住むの手話");
@@ -1091,8 +1093,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1105,6 +1105,8 @@ namespace BodyLangPractice
 
             if (yamai_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "病気の手話");
@@ -1113,8 +1115,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1127,6 +1127,8 @@ namespace BodyLangPractice
 
             if (benkyo_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "勉強の手話");
@@ -1135,8 +1137,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1149,6 +1149,8 @@ namespace BodyLangPractice
 
             if (tukuru_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "作るの手話");
@@ -1157,8 +1159,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1171,6 +1171,8 @@ namespace BodyLangPractice
 
             if (konnitiha_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "こんにちはの手話");
@@ -1179,8 +1181,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1200,6 +1200,8 @@ namespace BodyLangPractice
             }
             if (!a && tanosii_flag && tanosii_time == 10)
             {
+                CaptureScreen();
+
                 textBlock1.Text = "楽しい：◎";
                 image.Visibility = Visibility;
 
@@ -1209,8 +1211,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1227,6 +1227,8 @@ namespace BodyLangPractice
 
             if (atumeru_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "集めるの手話");
@@ -1235,8 +1237,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1250,6 +1250,8 @@ namespace BodyLangPractice
 
             if (otukaresama_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "お疲れ様の手話");
@@ -1258,8 +1260,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1273,6 +1273,8 @@ namespace BodyLangPractice
 
             if (neru_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "寝るの手話");
@@ -1281,8 +1283,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 count();
 
@@ -1296,6 +1296,8 @@ namespace BodyLangPractice
 
             if (keitaidenwa_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "携帯電話の手話");
@@ -1304,8 +1306,6 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
-
-                CaptureScreen();
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -1317,12 +1317,12 @@ namespace BodyLangPractice
 
             if (masuku_time == 20)
             {
+                CaptureScreen();
+
                 image.Visibility = Visibility;
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "マスクの手話");
                 await Task.Delay(2000);
-
-                CaptureScreen();
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -1396,8 +1396,6 @@ namespace BodyLangPractice
 
                 var indexString = index_next + 1;
                 textNumber.Text = indexString + " / " + uriList.Count;
-
-                Console.WriteLine(index_next);
             }
         }
 
@@ -1483,8 +1481,6 @@ namespace BodyLangPractice
                         label.Content = page15.TextBox1Str;
                         break;
                 }
-
-                Console.WriteLine(index_next);
             }
             else
             {
