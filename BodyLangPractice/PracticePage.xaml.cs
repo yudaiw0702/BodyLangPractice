@@ -1,28 +1,15 @@
-﻿using System;
+﻿using BodyLangPractice.BodyLangModelPage;
+using Microsoft.Kinect;
+using Microsoft.Kinect.VisualGestureBuilder;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Threading;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+using System.Windows.Forms;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Kinect;
-using Microsoft.Kinect.VisualGestureBuilder;
-using System.Resources;
-using System.ComponentModel.Design;
-using System.Net;
-using System.Threading;
-using Microsoft.Win32;
-using System.ComponentModel;
-using BodyLangPractice.BodyLangModelPage;
 
 namespace BodyLangPractice
 {
@@ -164,7 +151,7 @@ namespace BodyLangPractice
         private Gesture masuku;
 
         //Progress Gesture Frag
-        private Boolean tanosii_flag;
+        private bool tanosii_flag;
 
         int index_next = 0;
 
@@ -326,7 +313,7 @@ namespace BodyLangPractice
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                System.Windows.Forms.MessageBox.Show(ex.ToString());
             }
 
             var indexString = index_next + 1;
@@ -1015,6 +1002,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 count();
 
                 image.Visibility = Visibility.Hidden;
@@ -1035,6 +1024,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 count();
 
                 image.Visibility = Visibility.Hidden;
@@ -1054,6 +1045,8 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                CaptureScreen();
 
                 count();
 
@@ -1076,6 +1069,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 count();
 
                 image.Visibility = Visibility.Hidden;
@@ -1097,6 +1092,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 count();
 
                 image.Visibility = Visibility.Hidden;
@@ -1116,6 +1113,8 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                CaptureScreen();
 
                 count();
 
@@ -1137,6 +1136,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 count();
 
                 image.Visibility = Visibility.Hidden;
@@ -1157,6 +1158,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 count();
 
                 image.Visibility = Visibility.Hidden;
@@ -1176,6 +1179,8 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                CaptureScreen();
 
                 count();
 
@@ -1205,6 +1210,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 count();
 
                 image.Visibility = Visibility.Hidden;
@@ -1229,6 +1236,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 count();
 
                 image.Visibility = Visibility.Hidden;
@@ -1249,6 +1258,8 @@ namespace BodyLangPractice
                 //次の問題に遷移
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
+
+                CaptureScreen();
 
                 count();
 
@@ -1271,6 +1282,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 count();
 
                 image.Visibility = Visibility.Hidden;
@@ -1292,6 +1305,8 @@ namespace BodyLangPractice
                 index_next++;
                 _navi.Navigate(uriList[index_next]);
 
+                CaptureScreen();
+
                 image.Visibility = Visibility.Hidden;
             }
         }
@@ -1306,6 +1321,8 @@ namespace BodyLangPractice
 
                 Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "マスクの手話");
                 await Task.Delay(2000);
+
+                CaptureScreen();
 
                 image.Visibility = Visibility.Hidden;
             }
@@ -1392,6 +1409,8 @@ namespace BodyLangPractice
             MainWindow mw = new MainWindow();
             mw.count(next_push_count);
 
+            CaptureScreen();
+
             //15問以下の場合の処理
             if (index_next + 1 < uriList.Count)
             {
@@ -1477,6 +1496,30 @@ namespace BodyLangPractice
                 textNumber.Text = 0 + " / " + uriList.Count;
                 _navi.Navigate(uriList[0]);
             }
+        }
+
+        private void CaptureScreen()
+        {
+            // 画像のサイズを指定し、Bitmapオブジェクトのインスタンスを作成
+            System.Drawing.Bitmap bm = new System.Drawing.Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            // Bitmap bm = new Bitmap(500, 300);   // 幅500ピクセル × 高さ300ピクセルの場合
+
+            // Graphicsオブジェクトのインスタンスを作成
+            System.Drawing.Graphics gr = System.Drawing.Graphics.FromImage(bm);
+            // 画面全体をコピー
+            gr.CopyFromScreen(new System.Drawing.Point(0, 0), new System.Drawing.Point(0, 0), bm.Size);
+
+            //時間を取得
+            DateTime dt = DateTime.Now;
+            //ファイル名を日付にする
+            string fileName = "C:\\test1\\"+ dt.Year + "." + dt.Month + "." + 
+                              dt.Day + "." + dt.Hour + "時" + dt.Minute + "分" 
+                              + dt.Second + "秒.jpg";
+
+            // JPGで保存
+            bm.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            gr.Dispose();
         }
 
         private void Help_Click(object sender, RoutedEventArgs e)
