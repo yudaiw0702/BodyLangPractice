@@ -4,6 +4,7 @@ using Microsoft.Kinect.VisualGestureBuilder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -682,7 +683,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result1.Confidence * 100);
-                            Console.WriteLine(dt + " おはよう：" + result + "%");
+                            Trace.WriteLine(dt + " おはよう：" + result + "%");
                         }
                     }
 
@@ -712,7 +713,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result2.Confidence * 100);
-                            Console.WriteLine(dt + " おめでとう：" + result + "%");
+                            Trace.WriteLine(dt + " おめでとう：" + result + "%");
                         }
                     }
 
@@ -741,7 +742,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result3.Confidence * 100);
-                            Console.WriteLine(dt + " 休む：" + result + "%");
+                            Trace.WriteLine(dt + " 休む：" + result + "%");
                         }
                     }
 
@@ -769,7 +770,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result4.Confidence * 100);
-                            Console.WriteLine(dt + " 忘れる：" + result + "%");
+                            Trace.WriteLine(dt + " 忘れる：" + result + "%");
                         }
                     }
 
@@ -798,7 +799,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result5.Confidence * 100);
-                            Console.WriteLine(dt + " 住む：" + result + "%");
+                            Trace.WriteLine(dt + " 住む：" + result + "%");
                         }
                     }
 
@@ -827,7 +828,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result6.Confidence * 100);
-                            Console.WriteLine(dt + " 病気：" + result + "%");
+                            Trace.WriteLine(dt + " 病気：" + result + "%");
                         }
                     }
 
@@ -856,7 +857,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result7.Confidence * 100);
-                            Console.WriteLine(dt + " 勉強：" + result + "%");
+                            Trace.WriteLine(dt + " 勉強：" + result + "%");
                         }
                     }
 
@@ -885,7 +886,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result8.Confidence * 100);
-                            Console.WriteLine(dt + " 作る：" + result + "%");
+                            Trace.WriteLine(dt + " 作る：" + result + "%");
                         }
                     }
 
@@ -914,7 +915,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result9.Confidence * 100);
-                            Console.WriteLine(dt + " こんにちは：" + result + "%");
+                            Trace.WriteLine(dt + " こんにちは：" + result + "%");
                         }
                     }
 
@@ -940,7 +941,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result10.Progress * 100);
-                            Console.WriteLine(dt + " 楽しい：" + result + "%");
+                            Trace.WriteLine(dt + " 楽しい：" + result + "%");
                         }
                     }
 
@@ -969,7 +970,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result11.Confidence * 100);
-                            Console.WriteLine(dt + " 集める：" + result + "%");
+                            Trace.WriteLine(dt + " 集める：" + result + "%");
                         }
                     }
 
@@ -998,7 +999,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result12.Confidence * 100);
-                            Console.WriteLine(dt + " お疲れ様：" + result + "%");
+                            Trace.WriteLine(dt + " お疲れ様：" + result + "%");
                         }
                     }
 
@@ -1027,7 +1028,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result13.Confidence * 100);
-                            Console.WriteLine(dt + " 寝る：" + result + "%");
+                            Trace.WriteLine(dt + " 寝る：" + result + "%");
                         }
                     }
 
@@ -1056,7 +1057,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result14.Confidence * 100);
-                            Console.WriteLine(dt + " 携帯電話：" + result + "%");
+                            Trace.WriteLine(dt + " 携帯電話：" + result + "%");
                         }
                     }
 
@@ -1085,7 +1086,7 @@ namespace BodyLangPractice
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result15.Confidence * 100);
-                            Console.WriteLine(dt + " マスク：" + result + "%");
+                            Trace.WriteLine(dt + " マスク：" + result + "%");
                         }
                     }
                 }
@@ -1101,8 +1102,7 @@ namespace BodyLangPractice
                 CaptureScreen();
 
                 image.Visibility = Visibility;
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "おはようの手話");
-
+                
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1123,8 +1123,7 @@ namespace BodyLangPractice
                 CaptureScreen();
 
                 image.Visibility = Visibility;
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "おめでとうの手話");
-
+                
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1146,7 +1145,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "休むの手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1169,7 +1167,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "忘れるの手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1192,7 +1189,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "住むの手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1214,7 +1210,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "病気の手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1236,7 +1231,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "勉強の手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1258,7 +1252,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "作るの手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1280,7 +1273,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "こんにちはの手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1299,7 +1291,7 @@ namespace BodyLangPractice
             if (a && tanosii_time == 10)
             {
                 textBlock1.Text = "楽しい：○";
-                Console.WriteLine("[" + System.DateTime.Now.ToString() + "]" + "右手上OK");
+                
                 tanosii_flag = true;
                 tanosii_time = 0;
             }
@@ -1310,7 +1302,6 @@ namespace BodyLangPractice
                 textBlock1.Text = "楽しい：◎";
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "右手下OK");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1336,7 +1327,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "集めるの手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1359,7 +1349,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "お疲れ様の手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1382,7 +1371,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "寝るの手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1405,7 +1393,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "携帯電話の手話");
                 await Task.Delay(2000);
 
                 //次の問題に遷移
@@ -1426,7 +1413,6 @@ namespace BodyLangPractice
 
                 image.Visibility = Visibility;
 
-                Console.WriteLine("[" + DateTime.Now.ToString() + "]" + "マスクの手話");
                 await Task.Delay(2000);
 
                 image.Visibility = Visibility.Hidden;
