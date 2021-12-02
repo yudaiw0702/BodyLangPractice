@@ -771,6 +771,8 @@ namespace BodyLangPractice
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result4.Confidence * 100);
                             Trace.WriteLine(dt + " 忘れる：" + result + "%");
+                            //変な挙動したのでリセットしておく
+                            wasureru_time = 0;
                         }
                     }
 
@@ -1118,7 +1120,7 @@ namespace BodyLangPractice
         {
             omedeto_time++;
 
-            if (omedeto_time == 20)
+            if (omedeto_time == 18)
             {
                 CaptureScreen();
 
@@ -1161,7 +1163,7 @@ namespace BodyLangPractice
         {
             wasureru_time++;
 
-            if (wasureru_time == 20)
+            if (wasureru_time == 19)
             {
                 CaptureScreen();
 
