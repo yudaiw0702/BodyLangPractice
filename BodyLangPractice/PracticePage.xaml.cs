@@ -651,7 +651,7 @@ namespace BodyLangPractice
                     var result8 = gestureFrame.DiscreteGestureResults[tukuru];
                     var result9 = gestureFrame.DiscreteGestureResults[konnitiha];
                     //楽しいの手話：右手上で1付近、左手上で0付近
-                    var result10 = gestureFrame.ContinuousGestureResults[tanosii];
+                    var result10 = gestureFrame.DiscreteGestureResults[tanosii];
                     var result11 = gestureFrame.DiscreteGestureResults[atumeru];
                     var result12 = gestureFrame.DiscreteGestureResults[otukaresama];
                     var result13 = gestureFrame.DiscreteGestureResults[neru];
@@ -694,7 +694,7 @@ namespace BodyLangPractice
                             textBlock1.Text = "おめでとう：判定中";
                         }
 
-                        if (result1.Confidence > 0.2)
+                        if (result1.Confidence > 0.15)
                         {
                             textBlock1.Text = "おめでとう：○";
                         }
@@ -702,7 +702,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "おめでとう：" + result2.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result2.Confidence >= 0.3)
+                        if (result2.Confidence >= 0.21)
                         {
                             sw_omedeto(true);
                             textBlock1.Text = "おめでとう：◎";
@@ -921,26 +921,28 @@ namespace BodyLangPractice
 
                     if (index_next == 9)
                     {
-                        textBlock2.Text = "楽しい：" + result10.Progress.ToString();
-                        var indexString = index_next + 1;
-                        textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result10.Progress >= 0.8)
-                        {
-                            sw_tanosii(true); //右手が上の状態
-                        }
-                        else if (result10.Progress <= 0.2)
-                        {
-                            sw_tanosii(false);
-                        }
-                        else
+                        if (result10.Confidence > 0.1)
                         {
                             textBlock1.Text = "楽しい：判定中";
+                        }
+
+                        if (result10.Confidence > 0.2)
+                        {
+                            textBlock1.Text = "楽しい：○";
+                        }
+                        textBlock2.Text = "作る：" + result10.Confidence.ToString();
+                        var indexString = index_next + 1;
+                        textNumber.Text = indexString + " / " + uriList.Count;
+                        if (result10.Confidence >= 0.3)
+                        {
+                            sw_tukuru(true);
+                            textBlock1.Text = "楽しい：◎";
                         }
 
                         if (tanosii_time == 20)
                         {
                             DateTime dt = DateTime.Now;
-                            double result = Math.Round(result10.Progress * 100);
+                            double result = Math.Round(result10.Confidence * 100);
                             Trace.WriteLine(dt + " 楽しい：" + result + "%");
                         }
                     }
@@ -1288,18 +1290,11 @@ namespace BodyLangPractice
         private async void sw_tanosii(bool a)
         {
             tanosii_time++;
-            if (a && tanosii_time == 10)
-            {
-                textBlock1.Text = "楽しい：○";
-                
-                tanosii_flag = true;
-                tanosii_time = 0;
-            }
-            if (!a && tanosii_flag && tanosii_time == 10)
+
+            if (tanosii_time == 20)
             {
                 CaptureScreen();
 
-                textBlock1.Text = "楽しい：◎";
                 image.Visibility = Visibility;
 
                 await Task.Delay(2000);
@@ -1311,9 +1306,6 @@ namespace BodyLangPractice
                 count();
 
                 image.Visibility = Visibility.Hidden;
-
-                tanosii_time = 0;
-                tanosii_flag = false;
             }
         }
 
