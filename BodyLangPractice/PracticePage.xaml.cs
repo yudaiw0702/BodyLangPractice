@@ -932,10 +932,10 @@ namespace BodyLangPractice
                         {
                             textBlock1.Text = "楽しい：○";
                         }
-                        textBlock2.Text = "作る：" + result10.Confidence.ToString();
+                        textBlock2.Text = "楽しい：" + result10.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result10.Confidence >= 0.3)
+                        if (result10.Confidence >= 0.4)
                         {
                             sw_tukuru(true);
                             textBlock1.Text = "楽しい：◎";
@@ -1410,6 +1410,14 @@ namespace BodyLangPractice
                 await Task.Delay(2000);
 
                 image.Visibility = Visibility.Hidden;
+
+                //１５問目で正解したときにいろいろ初期化
+                index_next = 0;
+                var page1 = new question1();
+                label.Content = page1.TextBox1Str;
+
+                textNumber.Text = 1 + " / " + uriList.Count;
+                _navi.Navigate(uriList[0]);
             }
         }
 
@@ -1574,7 +1582,7 @@ namespace BodyLangPractice
                 var page1 = new question1();
                 label.Content = page1.TextBox1Str;
 
-                textNumber.Text = 0 + " / " + uriList.Count;
+                textNumber.Text = 1 + " / " + uriList.Count;
                 _navi.Navigate(uriList[0]);
             }
         }
