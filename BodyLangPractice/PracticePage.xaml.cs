@@ -935,9 +935,9 @@ namespace BodyLangPractice
                         textBlock2.Text = "楽しい：" + result10.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result10.Confidence >= 0.4)
+                        if (result10.Confidence >= 0.3)
                         {
-                            sw_tukuru(true);
+                            sw_tanosii(true);
                             textBlock1.Text = "楽しい：◎";
                         }
 

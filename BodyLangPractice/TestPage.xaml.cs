@@ -715,7 +715,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "忘れる：" + result4.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result4.Confidence >= 0.3)
+                        if (result4.Confidence >= 0.25)
                         {
                             sw_wasureru(true);
                             textBlock1.Text = "忘れる：◎";
