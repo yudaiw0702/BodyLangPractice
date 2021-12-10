@@ -694,7 +694,7 @@ namespace BodyLangPractice
                             textBlock1.Text = "おめでとう：判定中";
                         }
 
-                        if (result1.Confidence > 0.15)
+                        if (result1.Confidence > 0.10)
                         {
                             textBlock1.Text = "おめでとう：○";
                         }
@@ -702,7 +702,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "おめでとう：" + result2.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result2.Confidence >= 0.21)
+                        if (result2.Confidence >= 0.15)
                         {
                             sw_omedeto(true);
                             textBlock1.Text = "おめでとう：◎";
@@ -935,7 +935,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "楽しい：" + result10.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result10.Confidence >= 0.3)
+                        if (result10.Confidence > 0.3)
                         {
                             sw_tanosii(true);
                             textBlock1.Text = "楽しい：◎";
@@ -1308,6 +1308,8 @@ namespace BodyLangPractice
                 count();
 
                 image.Visibility = Visibility.Hidden;
+
+                tanosii_time = 0;
             }
         }
 
@@ -1499,6 +1501,10 @@ namespace BodyLangPractice
             next_push_count++;
             MainWindow mw = new MainWindow();
             mw.count(next_push_count);
+
+            DateTime dt = DateTime.Now;
+
+            Trace.WriteLine(dt+"-"+index_next + 1 + "問題をスキップ");
 
             CaptureScreen();
 
