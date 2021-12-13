@@ -709,7 +709,7 @@ namespace BodyLangPractice
                         }
                         else omedeto_time = 0;
 
-                        if (omedeto_time == 20)
+                        if (omedeto_time == 18)
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result2.Confidence * 100);
@@ -766,7 +766,7 @@ namespace BodyLangPractice
                             textBlock1.Text = "忘れる：◎";
                         }
 
-                        if (wasureru_time == 20)
+                        if (wasureru_time == 19)
                         {
                             DateTime dt = DateTime.Now;
                             double result = Math.Round(result4.Confidence * 100);
