@@ -545,7 +545,7 @@ namespace BodyLangPractice
         {
 
             // Gesturesの初期設定
-            gestureDatabase = new VisualGestureBuilderDatabase(@"../../Gestures/gesture.gbd");
+            gestureDatabase = new VisualGestureBuilderDatabase(@"../../Gestures/gesture_3nin.gbd");
             gestureFrameSource = new VisualGestureBuilderFrameSource(kinect, 0);
 
             // 使用するジェスチャーをデータベースから取り出す
@@ -672,7 +672,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "おはよう：" + result1.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result1.Confidence >= 0.3)
+                        if (result1.Confidence >= 0.1)
                         {
                             sw_ohayo(true);
                             textBlock1.Text = "おはよう：◎";
@@ -702,7 +702,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "おめでとう：" + result2.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result2.Confidence >= 0.15)
+                        if (result2.Confidence >= 0.10)
                         {
                             sw_omedeto(true);
                             textBlock1.Text = "おめでとう：◎";
@@ -731,7 +731,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "休む：" + result3.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result3.Confidence >= 0.3)
+                        if (result3.Confidence >= 0.1)
                         {
                             sw_yasumu(true);
                             textBlock1.Text = "休む：◎";
@@ -760,7 +760,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "忘れる：" + result4.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result4.Confidence >= 0.3)
+                        if (result4.Confidence >= 0.1)
                         {
                             sw_wasureru(true);
                             textBlock1.Text = "忘れる：◎";
@@ -790,7 +790,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "住む：" + result5.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result5.Confidence >= 0.3)
+                        if (result5.Confidence >= 0.1)
                         {
                             sw_sumu(true);
                             textBlock1.Text = "住む：◎";
@@ -819,7 +819,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "病気：" + result6.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result6.Confidence >= 0.25)
+                        if (result6.Confidence >= 0.1)
                         {
                             sw_yamai(true);
                             textBlock1.Text = "病気：◎";
@@ -848,7 +848,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "勉強：" + result7.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result7.Confidence >= 0.3)
+                        if (result7.Confidence >= 0.1)
                         {
                             sw_benkyo(true);
                             textBlock1.Text = "勉強：◎";
@@ -877,7 +877,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "作る：" + result8.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result8.Confidence >= 0.3)
+                        if (result8.Confidence >= 0.1)
                         {
                             sw_tukuru(true);
                             textBlock1.Text = "作る：◎";
@@ -906,7 +906,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "こんにちは：" + result9.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result9.Confidence >= 0.25)
+                        if (result9.Confidence >= 0.1)
                         {
                             sw_konnitiha(true);
                             textBlock1.Text = "こんにちは：◎";
@@ -935,7 +935,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "楽しい：" + result10.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result10.Confidence > 0.3)
+                        if (result10.Confidence > 0.1)
                         {
                             sw_tanosii(true);
                             textBlock1.Text = "楽しい：◎";
@@ -963,7 +963,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "集める：" + result11.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result11.Confidence >= 0.3)
+                        if (result11.Confidence >= 0.1)
                         {
                             sw_atumeru(true);
                             textBlock1.Text = "集める：◎";
@@ -992,7 +992,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "お疲れ様：" + result12.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result12.Confidence >= 0.3)
+                        if (result12.Confidence >= 0.1)
                         {
                             sw_otukaresama(true);
                             textBlock1.Text = "お疲れ様：◎";
@@ -1021,7 +1021,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "寝る：" + result13.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result13.Confidence >= 0.3)
+                        if (result13.Confidence >= 0.1)
                         {
                             sw_neru(true);
                             textBlock1.Text = "寝る：◎";
@@ -1050,7 +1050,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "携帯電話：" + result14.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result14.Confidence >= 0.3)
+                        if (result14.Confidence >= 0.1)
                         {
                             sw_keitaidenwa(true);
                             textBlock1.Text = "携帯電話：◎";
@@ -1079,7 +1079,7 @@ namespace BodyLangPractice
                         textBlock2.Text = "マスク：" + result15.Confidence.ToString();
                         var indexString = index_next + 1;
                         textNumber.Text = indexString + " / " + uriList.Count;
-                        if (result15.Confidence >= 0.3)
+                        if (result15.Confidence >= 0.1)
                         {
                             sw_masuku(true);
                             textBlock1.Text = "マスク：◎";
